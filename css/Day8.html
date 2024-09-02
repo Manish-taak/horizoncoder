@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Positions</title>
+    <style>
+      h1 {
+        text-align: center;
+      }
+      .relative{
+        width: 250px;
+        height: 250px;
+        background-color: orange;
+        position: relative;
+        left: 50px;
+        top: 50px;
+      }
+      .absolute{
+        position: absolute;
+        top: 50px;
+        right: 50px;
+        width: 250px;
+        height: 250px;
+        background-color: green;
+      }
+      .fixed{
+        position: fixed;
+        right: 50px;
+        bottom: 50px;
+        background-color: blue;
+        height: 250px;
+        width: 250px;
+      }
+      .section1{
+        height: 100vh;
+      }
+      .sticky{
+        
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lesson : Positions</h1>
+    <div>
+      <h2>position: Relative (An element with position: relative; is positioned relative to its normal position.)</h2>
+      <div class="relative">relative</div>
+    </div>
+
+    <div>
+        <h2>position : absolute</h2>
+        <div class="absolute">absolute</div>
+    </div>
+
+    <div>
+        <h2>position : fixed</h2>
+        <div class="fixed">fixed</div>
+    </div>
+    <div class="section1">
+        <div class="sticky">sticky</div>
+    </div>
+    <div class="section1"></div>
+    <div class="section1"></div>
+  </body>
+</html>
