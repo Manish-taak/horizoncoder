@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 6</title>
+    <style>
+        /* please ignore this css  */
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .block-element {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #f2f2f2;
+        }
+
+        .inline-element {
+            display: inline-block;
+            padding: 5px;
+            margin: 5px;
+            border: 1px solid #ddd;
+            background-color: #e6e6e6;
+        }
+
+        h2 {
+            margin-top: 30px;
+        }
+
+        /* please ignore this css  */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+
+
+        <h1 style="text-align: center;">HTML Elements Overview</h1>
+        <h1 style="text-align: center;">Day 6</h1>
+
+
+
+
+
+        <!-- Semantic vs Non-Semantic Elements -->
+        <h2>Semantic and Non-Semantic Elements</h2>
+        <p>
+            HTML elements can be categorized into <strong>semantic</strong> and <strong>non-semantic</strong> elements:
+        </p>
+        <ul>
+            <li><strong>Semantic Elements:</strong> Clearly describe their meaning in a human- and machine-readable way
+                (e.g.,
+                <code>&lt;header&gt;</code>
+                , <code>&lt;footer&gt;</code>
+                , <code>&lt;article&gt;</code>,
+                <code>&lt;nav&gt;</code>,
+                <code>&lt;aside&gt;</code>,
+                <code>&lt;details&gt;</code>,
+                <code>&lt;figcaption&gt;</code>,
+                <code>&lt;figure&gt;</code>,
+                <code>&lt;main&gt;</code>,
+                <code>&lt;section&gt;</code>,
+                <code>&lt;summary&gt;</code>,
+                <code>&lt;time&gt;</code>,
+                ).
+            </li>
+            <li><strong>Non-Semantic Elements:</strong> Do not provide any information about the content they contain
+                (e.g., <code>&lt;div&gt;</code>, <code>&lt;span&gt;</code>).</li>
+        </ul>
+
+
+
+
+
+
+        <h3>Examples of Semantic Elements:</h3>
+        <div class="block-element">
+            <header>
+                <h2>Header Section</h2>
+                <p>This is a header, which is a semantic element used for introductory content.</p>
+            </header>
+            <article>
+                <h3>Article Title</h3>
+                <p>This is an article, representing independent content in a document.</p>
+            </article>
+            <footer>
+                <p>This is a footer, used for information at the end of the document.</p>
+            </footer>
+        </div>
+
+
+        
+
+
+
+
+
+        <h3>Examples of Non-Semantic Elements:</h3>
+        <div class="block-element">
+            <div>
+                <p><strong>&lt;div&gt;</strong> is a non-semantic element used for grouping content without describing
+                    its meaning.</p>
+            </div>
+            <span>This is a <strong>&lt;span&gt;</strong> element, used for inline grouping without any specific
+                meaning.</span>
+        </div>
+
+
+
+
+
+
+
+        <!-- Block-Level Elements -->
+        <h2>Block-Level Elements</h2>
+        <p>
+            Block-level elements start on a new line, and take up the full width available, making them useful for
+            structural layout:
+        </p>
+
+
+
+
+        <div class="block-element">
+            <address>123 Main Street, Anytown, USA</address>
+
+            <article>
+                <p>Article Content</p>
+            </article>
+
+
+            <aside>
+                <p>Aside Content</p>
+            </aside>
+
+
+            <blockquote cite="http://example.com">
+                <p>Quote from a source</p>
+            </blockquote>
+
+            <canvas>Your browser does not support the HTML5 canvas tag.</canvas>
+
+            <div>Div Content</div>
+
+            <footer>Footer Content</footer>
+
+            <form>
+                <p>Form Content</p>
+            </form>
+
+
+            <header>Header Content</header>
+
+            <nav>Navigation Content</nav>
+
+            <section>Section Content</section>
+
+            <p>Paragraph Content</p>
+
+            <ul>
+                <li>List Item</li>
+            </ul>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Header 1</th>
+                        <th>Header 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Data 1</td>
+                        <td>Data 2</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <!-- Inline Elements -->
+        <h2>Inline Elements</h2>
+        <p>
+            Inline elements do not start on a new line and only take up as much width as necessary. They are commonly
+            used within block-level elements to style or add meaning to small portions of text:
+        </p>
+        <div class="inline-element"><a href="#">Link</a></div>
+        <div class="inline-element"><abbr title="World Health Organization">WHO</abbr></div>
+        <div class="inline-element"><b>Bold Text</b></div>
+        <div class="inline-element"><i>Italic Text</i></div>
+        <div class="inline-element"><img src="image.jpg" alt="Sample Image"></div>
+        <div class="inline-element"><input type="text" placeholder="Input field"></div>
+        <div class="inline-element"><label for="name">Name:</label></div>
+        <div class="inline-element"><span>Span Content</span></div>
+        <div class="inline-element"><strong>Strong Text</strong></div>
+        <div class="inline-element"><em>Emphasized Text</em></div>
+    </div>
+</body>
+
+</html>

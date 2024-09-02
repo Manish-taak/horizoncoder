@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3 html</title>
+    <style>
+        /* please ignore css */
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        caption {
+            caption-side: top;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        tfoot {
+            font-weight: bold;
+            background-color: #f9f9f9;
+        }
+
+        /* please ignore css */
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Working with Tables in HTML</h1>
+    <h1 style="text-align: center;">Day 3</h1>
+
+
+    <!-- Creating a Table -->
+    <h2>Basic Table Structure</h2>
+
+    <table>
+        <caption>Monthly Sales Report</caption> <!-- Table caption -->
+        <colgroup>
+            <col span="1" style="background-color: #f2f2f2;"> <!-- First column styling -->
+            <col span="2"> <!-- Remaining columns -->
+        </colgroup>
+
+        <thead>
+            <tr>
+                <th>Month</th> <!-- Header cell -->
+                <th>Product A Sales</th>
+                <th>Product B Sales</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>January</td> <!-- Data cell -->
+                <td>150</td>
+                <td>200</td>
+            </tr>
+            <tr>
+                <td>February</td>
+                <td>180</td>
+                <td>210</td>
+            </tr>
+            <tr>
+                <td>March</td>
+                <td>160</td>
+                <td>250</td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td>Total</td>
+                <td>490</td> <!-- Footer cell with total -->
+                <td>660</td>
+            </tr>
+        </tfoot>
+
+    </table>
+
+    <h2>Understanding Table Elements</h2>
+    <p>
+        The table above demonstrates the use of various HTML tags to create and format a table:
+    </p>
+    <ul>
+        <li><code>&lt;table&gt;</code>: Defines the table.</li>
+        <li><code>&lt;caption&gt;</code>: Adds a caption/title to the table.</li>
+        <li><code>&lt;colgroup&gt;</code> and <code>&lt;col&gt;</code>: Group and style table columns.</li>
+        <li><code>&lt;thead&gt;</code>: Groups the header content in the table.</li>
+        <li><code>&lt;tbody&gt;</code>: Groups the main body content in the table.</li>
+        <li><code>&lt;tfoot&gt;</code>: Groups the footer content in the table.</li>
+        <li><code>&lt;tr&gt;</code>: Defines a row in the table.</li>
+        <li><code>&lt;th&gt;</code>: Defines a header cell in the table.</li>
+        <li><code>&lt;td&gt;</code>: Defines a standard data cell in the table.</li>
+    </ul>
+</body>
+
+</html>
+
+
+
+
+<!-- 
+
+copy this code
+ includeed rowspan and colspan   ex = _______________ 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Tables Example with Colspan and Rowspan</title>
+    <style>
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        caption {
+            caption-side: top;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        tfoot {
+            font-weight: bold;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Working with Tables in HTML</h1>
+
+    <h2>Table with Colspan and Rowspan</h2>
+    <table>
+        <caption>Monthly Sales Report with Merged Cells</caption> 
+        <colgroup>
+            <col span="1" style="background-color: #f2f2f2;">
+            <col span="3"> 
+        </colgroup>
+        <thead>
+            <tr>
+                <th rowspan="2">Month</th>
+                <th colspan="2">Product Sales</th>
+                <th rowspan="2">Total Sales</th>
+            </tr>
+            <tr>
+                <th>Product A</th>
+                <th>Product B</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>January</td> 
+                <td>150</td>
+                <td>200</td>
+                <td>350</td> 
+            </tr>
+            <tr>
+                <td>February</td>
+                <td>180</td>
+                <td>210</td>
+                <td>390</td>
+            </tr>
+            <tr>
+                <td>March</td>
+                <td>160</td>
+                <td>250</td>
+                <td>410</td> 
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Total</td>
+                <td colspan="2">890</td> 
+                <td>1150</td> 
+            </tr>
+        </tfoot>
+    </table>
+
+    <h2>Understanding Table Elements with Colspan and Rowspan</h2>
+    <p>
+        The table above demonstrates the use of <code>colspan</code> and <code>rowspan</code> attributes:
+    </p>
+    <ul>
+        <li><code>colspan="2"</code>: Merges two columns into one. Used for the "Product Sales" header and the "Total" footer cell.</li>
+        <li><code>rowspan="2"</code>: Merges two rows into one. Used for the "Month" header cell.</li>
+    </ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+-->

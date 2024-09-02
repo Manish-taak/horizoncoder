@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Form Example</title>
+    <style>
+        /* please ignore this css  */
+        form {
+            width: 60%;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            width: auto;
+            padding: 10px 20px;
+            margin-right: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: #45a049;
+        }
+
+
+        .my-cantainer {
+            width: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 0 auto;
+        }
+
+        /* please ignore this css  */
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">HTML Form Example</h1>
+    <h1 style="text-align: center;">Day 5</h1>
+
+    <!-- Creating a form with various attributes -->
+    <form action="https://example.com/submit" method="post" target="_blank" autocomplete="on"
+        enctype="multipart/form-data">
+        <!-- Form Elements -->
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required maxlength="50">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required
+                minlength="8">
+        </div>
+
+        <div class="form-group">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob">
+        </div>
+
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label>
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other">Other</label>
+        </div>
+
+        <div class="form-group">
+            <label for="language">Favorite Language:</label>
+            <select id="language" name="language">
+                <option value="javascript">JavaScript</option>
+                <option value="python">Python</option>
+                <option value="java">Java</option>
+                <option value="csharp">C#</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="bio">Bio:</label>
+            <textarea id="bio" name="bio" rows="4" cols="50"
+                placeholder="Tell us something about yourself..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="file">Upload Resume:</label>
+            <input type="file" id="file" name="file">
+        </div>
+
+        <div class="form-group">
+            <label for="terms">Accept Terms:</label>
+            <input type="checkbox" id="terms" name="terms" required>
+            <label for="terms">I accept the terms and conditions.</label>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </div>
+    </form>
+
+
+
+    <!-- 
+        input type
+    -->
+    <div class="my-cantainer">
+        <input type="button">
+        <input type="checkbox">
+        <input type="color">
+        <input type="date">
+        <input type="datetime-local">
+        <input type="email">
+        <input type="file">
+        <input type="hidden">
+        <input type="image">
+        <input type="month">
+        <input type="number">
+        <input type="password">
+        <input type="radio">
+        <input type="range">
+        <input type="reset">
+        <input type="search">
+        <input type="submit">
+        <input type="tel">
+        <input type="text">
+        <input type="time">
+        <input type="url">
+        <input type="week">
+    </div>
+
+</body>
+
+</html>
