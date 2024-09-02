@@ -1,36 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Display inline inlinr-block block</title>
     <style>
-        .inline{
+        .inline {
             display: inline;
-            width: 500px; /* nothing apply to inline element*/ 
+            width: 500px;
+            /* nothing apply to inline element*/
         }
-        .inline-block{
+
+        .inline-block {
             display: inline-block;
-            width: 500px; /*its is also an inline element but but you can change height width*/
+            width: 500px;
+            /*its is also an inline element but but you can change height width*/
         }
-        .block{
+
+        .block {
             display: block;
-            width: 500px; /* height width ca apply but next element will always move to new line because of display block property but if this is under a flex container display block not work*/
+            width: 500px;
+            /* height width ca apply but next element will always move to new line because of display block property but if this is under a flex container display block not work*/
         }
-        div{
+
+        div {
             display: flex;
         }
     </style>
 </head>
+
 <body>
     <h1>Display Inline : Inlinr-block : Block</h1>
 
-<h1 class="inline">Display Inline (you cannot set any height width of an inline element)</h1>
-<h1 class="inline-block">Display inline-block (its is also an inline element but you can set height width )</h1>
-<!-- <div>
+    <h1 class="inline">Display Inline (you cannot set any height width of an inline element)</h1>
+    <h1 class="inline-block">Display inline-block (its is also an inline element but you can set height width )</h1>
+    <!-- <div>
 
     <h1 class="block">Display block (takes whole width)</h1> <h1>new</h1>
 </div> -->
-<h1 class="block">Display block (takes whole width)</h1> <h1>new</h1>
+    <h1 class="block">Display block (takes whole width)</h1>
+    <h1>new</h1>
 </body>
-</html> 
+
+</html>

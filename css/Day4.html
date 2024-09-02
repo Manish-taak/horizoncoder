@@ -1,35 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Height Width And Box Sizing</title>
-    
+
     <style>
-.box{
-    width: 500px; /* after applying fix width the element will reserve the fixed provided width*/
-    height: 500px;  /* after applying fix height the element will reserve the fixed provided height*/
-    background-color: red;
-}
-.box2{
-    max-width: 500px; /* after applying max-width to an element the element will not increase its width more than 500px but can shrink when you minimize the screen*/
-    max-height: 500px; /* after applying max height to an element it the element with not expand its height more than 500px*/
-    background-color: green;
-}
-.box3{
-    min-width: 500px; /* after applying min-width to an element the element will not decrease  its width less than 500px but can expand  when you maximize  the screen*/
-    min-height: 500px; /* after applying min height to an element it the element with not shrink its height less than 500px*/
-    background-color: blue;
-}
-.box4{
-    width: 500px;
-    height: 200px;
-    padding: 400px;
-    background-color: orange;
-    box-sizing: border-box; /*The CSS box-sizing property allows us to include the padding and border in an element's total width and height.*/
-}
+        .box {
+            width: 500px;
+            /* after applying fix width the element will reserve the fixed provided width*/
+            height: 500px;
+            /* after applying fix height the element will reserve the fixed provided height*/
+            background-color: red;
+        }
+
+        .box2 {
+            max-width: 500px;
+            /* after applying max-width to an element the element will not increase its width more than 500px but can shrink when you minimize the screen*/
+            max-height: 500px;
+            /* after applying max height to an element it the element with not expand its height more than 500px*/
+            background-color: green;
+        }
+
+        .box3 {
+            min-width: 500px;
+            /* after applying min-width to an element the element will not decrease  its width less than 500px but can expand  when you maximize  the screen*/
+            min-height: 500px;
+            /* after applying min height to an element it the element with not shrink its height less than 500px*/
+            background-color: blue;
+        }
+
+        .box4 {
+            width: 500px;
+            height: 200px;
+            padding: 400px;
+            background-color: orange;
+            box-sizing: border-box;
+            /*The CSS box-sizing property allows us to include the padding and border in an element's total width and height.*/
+        }
     </style>
 </head>
+
 <body>
     <h1>height width and box sizing</h1>
     <div class="box">width and height</div>
@@ -38,4 +50,5 @@
     <div class="box4">box-sizing</div>
 
 </body>
+
 </html>
