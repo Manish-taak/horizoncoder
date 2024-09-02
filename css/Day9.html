@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background Image And Borders</title>
+    <style>
+      *{
+        color: white;
+        font-size: 50px;
+      }
+      body {
+        width: 100%;
+        height: 100vh;
+      }
+      .bgcolor {
+        background-color: lime;
+        width: 100%;
+        height: 100%;
+      }
+      .bgimage {
+        background-image: url("bgimage.jpg");
+        background-position: center; /* set image position top right left bottom center*/
+        background-size: cover; /* contain cover*/
+        background-repeat: no-repeat; /* prohibiting from repeating the image round space no-repeat repeat-y repeat-x repeat	*/
+        width: 100%;
+        height: 100%;
+      }
+      .linear{
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right , orange , red); /* create a bg color using linear-gradient Syntax : background: linear-gradient(to position , firstcolor , lastcolor);*/
+      }
+      .radial{
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(closest-side circle , red , orange , black); /* radial gradient starts from the center syntax : background: radial-gradient(side (closest or farthest) shape , firstcolor , mid-color , lastcolor);*/
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bgcolor">background color</div>
+    <div class="bgimage"> background image</div>
+    <div class="linear"> background linear-gradient</div>
+    <div class="radial"> background radial-gradient</div>
+  </body>
+</html>
