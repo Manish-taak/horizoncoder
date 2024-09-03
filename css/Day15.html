@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Media Queries Example</title>
+    <style>
+        /* Default styles */
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+body{
+    padding: 0 20px;
+}
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: darkblue;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Media Query for screens with a minimum width of 600px */
+        @media screen and  (min-width: 600px) {
+            .container {
+                background-color: lightblue;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            p {
+                font-size: 18px;
+            }
+        }
+
+        /* Media Query for screens with a maximum width of 899px */
+        @media screen and (max-width: 899px) {
+            .container {
+                background-color: lightgreen;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+
+        /* Media Query for screens between 600px and 899px */
+        @media screen and (min-width: 600px) and (max-width: 899px) {
+            .container {
+                background-color: lightcoral;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            p {
+                font-size: 17px;
+            }
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            transition: background-color 0.3s;
+        }
+
+        @media (hover: hover) {
+            .box:hover {
+                background-color: red;
+            }
+        }
+
+        /* Styles applied if the device does not support hover */
+        @media (hover: none) {
+            .box {
+                background-color: green; /* Change color for non-hover devices */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Responsive Design Example</h1>
+        <p>This example demonstrates how CSS media queries work with min-width and max-width to create responsive designs. Resize the browser window to see the effects.</p>
+    </div>
+    <div class="box"></div>
+</body>
+</html>

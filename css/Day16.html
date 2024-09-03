@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Hover Effects</title>
+    <style>
+        /* Basic styles for the container */
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            background-color: #f0f0f0; /* Light grey background */
+        }
+
+        /* Basic styles for the button */
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff; /* Blue background */
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+            cursor: pointer; /* Change cursor to pointer */
+        }
+
+        /* Hover effect for the button */
+        .button:hover {
+            background-color: #0056b3; /* Darker blue background on hover */
+            transform: scale(1.05); /* Slightly enlarge button */
+        }
+
+        /* Hover effect for the button with focus */
+        .button:focus {
+            outline: none; /* Remove default focus outline */
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Add a blue outline */
+        }
+
+
+        @font-face {
+            font-family: 'CustomFont';
+            src: url('fonts/custom-font.woff2') format('woff2'),
+                 url('fonts/custom-font.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Apply the custom font to elements */
+        h1 {
+            font-family: 'CustomFont', sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Button element with hover effect -->
+        <a href="#" class="button">Hover over me!</a>
+        <h1>Check the Font</h1>
+    </div>
+
+</body>
+</html>

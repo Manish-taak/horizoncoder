@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Introduction to CSS with examples of inline, internal, and external styles.">
+    <title>Introduction to CSS</title>
+
+    <!-- External CSS: Link to a separate CSS file -->
+    <!-- Uncomment the following line if there's an external stylesheet (styles.css) -->
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+
+    <!-- Internal CSS: CSS written within the <style> tag -->
+    <style>
+        /* Internal CSS */
+        body {
+            background-color: #fafafa;  /* Light background color for the page */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  /* Font family applied to the entire page */
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #3498db;  /* Header background */
+            color: white;               /* Header text color */
+            text-align: center;          /* Center align text */
+            padding: 10px 0;             /* Padding inside header */
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #2c3e50;              /* Dark blue heading color */
+        }
+
+        p {
+            color: #34495e;              /* Grayish text color */
+            line-height: 1.6;            /* Increase line height for readability */
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            background-color: #f9f9f9;   /* Light background for highlighted text */
+            border-left: 5px solid #3498db;
+            padding-left: 10px;
+        }
+
+        footer {
+            text-align: center;           /* Centered footer text */
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Introduction to CSS</h1>
+    </header>
+
+    <main>
+        <!-- Introduction to CSS -->
+        <section>
+            <h2>What is CSS?</h2>
+            <p>
+                CSS (Cascading Style Sheets) is a language used to describe the presentation of a document written in HTML. 
+                It controls the layout, colors, fonts, and overall visual appearance of the web page.
+            </p>
+        </section>
+
+        <!-- Types of CSS -->
+        <section>
+            <h2>Types of CSS</h2>
+
+            <!-- Inline CSS -->
+            <h3>1. Inline CSS</h3>
+            <p>
+                Inline CSS is applied directly within an HTML element using the <code>style</code> attribute. 
+                It is useful for quick, specific styling but not recommended for larger projects.
+            </p>
+            <p>
+                Example: 
+                <span style="color: red; font-weight: bold;">This text is styled using inline CSS.</span> <!-- Inline CSS Example -->
+            </p>
+
+            <!-- Internal CSS -->
+            <h3>2. Internal CSS</h3>
+            <p>
+                Internal CSS is written inside the <code>&lt;style&gt;</code> tag within the <code>&lt;head&gt;</code> section of the HTML document. 
+                It is useful for styling a single page or when you want to keep styles specific to that page.
+            </p>
+            <div class="highlight">
+                Example: The styles for this document (e.g., background color, font, etc.) are defined using internal CSS within the <code>&lt;head&gt;</code> section.
+            </div>
+
+            <!-- External CSS -->
+            <h3>3. External CSS</h3>
+            <p>
+                External CSS is written in a separate file with a <code>.css</code> extension and linked to an HTML document using the <code>&lt;link&gt;</code> tag. 
+                It is the preferred method for styling large websites since it keeps the design separate from the content.
+            </p>
+            <div class="highlight">
+                Example: You can create a file named <code>styles.css</code> and link it using the following line in the <code>&lt;head&gt;</code> section of your HTML:
+                <br>
+                <code>&lt;link rel="stylesheet" href="styles.css"&gt;</code>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CSS Basics. All rights reserved.</p>
+    </footer>
+</body>
+</html>
