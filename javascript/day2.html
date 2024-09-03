@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Operators and Expressions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        .example {
+            margin: 15px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>JavaScript Operators and Expressions</h1>
+
+    <h2>1. Arithmetic Operators</h2>
+    <p>Arithmetic operators are used to perform mathematical operations.</p>
+    <ul>
+        <li><b>+</b> Addition</li>
+        <li><b>-</b> Subtraction</li>
+        <li><b>*</b> Multiplication</li>
+        <li><b>/</b> Division</li>
+        <li><b>%</b> Modulus (Remainder)</li>
+        <li><b>++</b> Increment</li>
+        <li><b>--</b> Decrement</li>
+    </ul>
+    <div class="example">
+        <pre>
+// Example of Arithmetic Operators
+let a = 10;
+let b = 5;
+console.log('a + b =', a + b);  // 15
+console.log('a - b =', a - b);  // 5
+console.log('a * b =', a * b);  // 50
+console.log('a / b =', a / b);  // 2
+console.log('a % b =', a % b);  // 0
+console.log('++a =', ++a);      // 11
+console.log('--b =', --b);      // 4
+        </pre>
+    </div>
+
+    <h2>2. Assignment Operators</h2>
+    <p>Assignment operators assign values to variables.</p>
+    <ul>
+        <li><b>=</b> Assign</li>
+        <li><b>+=</b> Add and assign</li>
+        <li><b>-=</b> Subtract and assign</li>
+        <li><b>*=</b> Multiply and assign</li>
+        <li><b>/=</b> Divide and assign</li>
+        <li><b>%=</b> Modulus and assign</li>
+    </ul>
+    <div class="example">
+        <pre>
+// Example of Assignment Operators
+let c = 10;
+c += 5;   // c = c + 5
+console.log('c += 5:', c);   // 15
+c -= 3;   // c = c - 3
+console.log('c -= 3:', c);   // 12
+c *= 2;   // c = c * 2
+console.log('c *= 2:', c);   // 24
+c /= 4;   // c = c / 4
+console.log('c /= 4:', c);   // 6
+c %= 5;   // c = c % 5
+console.log('c %= 5:', c);   // 1
+        </pre>
+    </div>
+
+    <h2>3. Comparison Operators</h2>
+    <p>Comparison operators are used to compare two values and return a boolean result.</p>
+    <ul>
+        <li><b>==</b> Equal to</li>
+        <li><b>===</b> Strictly equal to (type and value)</li>
+        <li><b>!=</b> Not equal to</li>
+        <li><b>!==</b> Strictly not equal to</li>
+        <li><b>&gt;</b> Greater than</li>
+        <li><b>&lt;</b> Less than</li>
+        <li><b>&gt;=</b> Greater than or equal to</li>
+        <li><b>&lt;=</b> Less than or equal to</li>
+    </ul>
+    <div class="example">
+        <pre>
+// Example of Comparison Operators
+let x = 5;
+let y = '5';
+console.log('x == y:', x == y);     // true
+console.log('x === y:', x === y);   // false
+console.log('x != y:', x != y);     // false
+console.log('x !== y:', x !== y);   // true
+console.log('x > 3:', x > 3);       // true
+console.log('x < 3:', x < 3);       // false
+console.log('x >= 5:', x >= 5);     // true
+console.log('x <= 5:', x <= 5);     // true
+        </pre>
+    </div>
+
+    <h2>4. Logical Operators</h2>
+    <p>Logical operators are used to combine or invert boolean expressions.</p>
+    <ul>
+        <li><b>&&</b> Logical AND</li>
+        <li><b>||</b> Logical OR</li>
+        <li><b>!</b> Logical NOT</li>
+    </ul>
+    <div class="example">
+        <pre>
+// Example of Logical Operators
+let isTrue = true;
+let isFalse = false;
+console.log('isTrue && isFalse:', isTrue && isFalse); // false
+console.log('isTrue || isFalse:', isTrue || isFalse); // true
+console.log('!isTrue:', !isTrue);                     // false
+        </pre>
+    </div>
+
+    <h2>5. Bitwise Operators</h2>
+    <p>Bitwise operators work on the binary representation of numbers.</p>
+    <ul>
+        <li><b>&</b> Bitwise AND</li>
+        <li><b>|</b> Bitwise OR</li>
+        <li><b>^</b> Bitwise XOR</li>
+        <li><b>~</b> Bitwise NOT</li>
+        <li><b>&lt;&lt;</b> Bitwise Left Shift</li>
+        <li><b>&gt;&gt;</b> Bitwise Right Shift</li>
+        <li><b>&gt;&gt;&gt;</b> Bitwise Unsigned Right Shift</li>
+    </ul>
+    <div class="example">
+        <pre>
+// Example of Bitwise Operators
+let p = 5;   // 0101 in binary
+let q = 3;   // 0011 in binary
+console.log('p & q:', p & q);   // 1 (0001 in binary)
+console.log('p | q:', p | q);   // 7 (0111 in binary)
+console.log('p ^ q:', p ^ q);   // 6 (0110 in binary)
+console.log('~p:', ~p);         // -6 (inverts bits)
+console.log('p << 1:', p << 1); // 10 (1010 in binary)
+console.log('p >> 1:', p >> 1); // 2 (0010 in binary)
+console.log('p >>> 1:', p >>> 1); // 2 (0010 in binary)
+        </pre>
+    </div>
+
+    <h2>6. Other Operators</h2>
+    <p>JavaScript also has other operators for various purposes:</p>
+    <ul>
+        <li><b>typeof</b> - Returns the data type of a variable</li>
+        <li><b>instanceof</b> - Checks if an object is an instance of a specific class or constructor</li>
+        <li><b>in</b> - Checks if a property exists in an object</li>
+        <li><b>delete</b> - Deletes a property from an object</li>
+        <li><b>?</b> Ternary Operator - Shortens conditional statements</li>
+    </ul>
+    <div class="example">
+        <pre>
+// Example of Other Operators
+let z = 42;
+console.log('typeof z:', typeof z);                 // "number"
+console.log('[] instanceof Array:', [] instanceof Array); // true
+console.log('"length" in "Hello":', "length" in "Hello"); // true
+let obj = { name: 'John' };
+delete obj.name;
+console.log('delete obj.name:', obj);               // {}
+let result = z > 40 ? 'Greater than 40' : '40 or less';
+console.log('Ternary Operator:', result);           // "Greater than 40"
+        </pre>
+    </div>
+
+    <script>
+
+    </script>
+
+
+</body>
+
+
+
+
+</html>
