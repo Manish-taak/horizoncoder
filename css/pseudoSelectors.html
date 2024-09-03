@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Pseudoselectors</title>
+    <style>
+        /* Basic styles for demonstration */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .example {
+            margin-bottom: 20px;
+        }
+
+        .example a {
+            text-decoration: none;
+            color: blue;
+        }
+
+        /* :hover - Applies styles when the mouse is over the element */
+        .hover-example:hover {
+            color: red;
+        }
+
+        /* :active - Applies styles while the element is being activated (e.g., clicked) */
+        .active-example:active {
+            color: green;
+        }
+
+        /* :focus - Applies styles when the element has focus (e.g., input fields) */
+        .focus-example:focus {
+            outline: 2px solid orange;
+        }
+
+        /* :visited - Applies styles to visited links */
+        .visited-example:visited {
+            color: purple;
+        }
+
+        /* :link - Applies styles to unvisited links */
+        .link-example:link {
+            color: blue;
+        }
+
+        /* :first-child - Applies styles to the first child of a parent element */
+        .first-child-example:first-child {
+            font-weight: bold;
+        }
+
+        /* :last-child - Applies styles to the last child of a parent element */
+        .last-child-example:last-child {
+            font-style: italic;
+        }
+
+        /* :nth-child() - Applies styles to elements based on their position in a parent */
+        .nth-child-example:nth-child(odd) {
+            background-color: #f0f0f0;
+        }
+
+        /* :nth-of-type() - Applies styles to elements of a specific type based on their position */
+        .nth-of-type-example:nth-of-type(2) {
+            color: green;
+        }
+
+        /* :not() - Applies styles to elements that do not match the given selector */
+        .not-example:not(.special) {
+            color: gray;
+        }
+
+        /* :empty - Applies styles to elements that have no children */
+        .empty-example:empty {
+            background-color: #f9f9f9;
+        }
+
+        /* ::before - Inserts content before the content of the element */
+        .before-example::before {
+            content: "Prefix: ";
+            color: orange;
+        }
+
+        /* ::after - Inserts content after the content of the element */
+        .after-example::after {
+            content: " :Suffix";
+            color: teal;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Pseudoselectors Examples</h1>
+
+    <div class="example hover-example">
+        <p>Hover over this text to change its color.</p>
+    </div>
+
+    <div class="example active-example">
+        <p>Click on this text to change its color.</p>
+    </div>
+
+    <input type="text" class="focus-example" placeholder="Focus on me"/>
+
+    <div class="example link-example">
+        <a href="#">Unvisited link</a>
+    </div>
+    
+    <div class="example visited-example">
+        <a href="#" class="visited-example">Visited link</a>
+    </div>
+
+    <ul>
+        <li class="first-child-example">I am the first child.</li>
+        <li>I am not the first child.</li>
+    </ul>
+
+    <ul>
+        <li>I am not the last child.</li>
+        <li class="last-child-example">I am the last child.</li>
+    </ul>
+
+    <ul>
+        <li class="nth-child-example">Item 1</li>
+        <li class="nth-child-example">Item 2</li>
+        <li class="nth-child-example">Item 3</li>
+    </ul>
+
+    <ul>
+        <li class="nth-of-type-example">Item 1</li>
+        <li class="nth-of-type-example">Item 2</li>
+        <li class="nth-of-type-example">Item 3</li>
+    </ul>
+
+    <div class="example not-example special">This is a special item.</div>
+    <div class="example not-example">This item is not special.</div>
+
+    <div class="empty-example"></div>
+    <div class="example">This div is not empty.</div>
+
+    <div class="before-example">
+        <p>This text has a prefix added by ::before.</p>
+    </div>
+
+    <div class="after-example">
+        <p>This text has a suffix added by ::after.</p>
+    </div>
+</body>
+</html>
