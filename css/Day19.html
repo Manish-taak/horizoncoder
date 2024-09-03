@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animation Example</title>
+    <style>
+        /* Define the keyframes for the animation */
+        @keyframes slide-fade {
+            from {
+                transform: translateX(0); /* Start position */
+                opacity: 1;               /* Start opacity */
+            }
+            to {
+                transform: translateX(200px); /* End position */
+                opacity: 0;                  /* End opacity */
+            }
+        }
+
+        /* Style for the animated element using shorthand */
+        .animated-box-shorthand {
+            width: 100px;
+            height: 100px;
+            background-color: coral;
+            position: relative;
+            animation: slide-fade 2s ease-in-out 1s  infinite alternate forwards ; /* Apply the animation with shorthand  syntax : animation-name duration timing function delay  iteration-count  direction fill-mode play-state */
+        }
+
+        /* Style for the animated element using individual properties */
+        .animated-box-individual {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            position: relative;
+            animation-name: slide-fade; /* Specify the animation name */
+            animation-duration: 2s;    /* Specify the duration */
+            animation-timing-function: ease-in-out; /* Specify the timing function  example : linear ease ease-in ease-out ease-in-out		*/
+            animation-iteration-count: infinite; /* Specify the number of iterations */
+            animation-direction: alternate; /* set animation direction example : alternate alternate-reverse reverse*/
+            animation-fill-mode: forwards; /* set property of keyframe example forward set last keyframs property  backward set first keyframe property */
+            animation-play-state: running; /* define animation state running or pause*/
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-box-shorthand"></div> <!-- Element with shorthand animation -->
+    <div class="animated-box-individual"></div> <!-- Element with individual properties animation -->
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transition Shorthand Example</title>
+    <style>
+        /* Basic styling for the example */
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            transition: all 0.5s ease-in-out; /* Shorthand method */ /* syntax : transition property duration  timing function delay*/
+        }
+
+        /* Hover state to trigger the transition */
+        .box:hover {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+
+        /* Longhand methods for individual properties */
+        .box-long {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            transition-property: width, height, background-color; /* Individual properties */
+            transition-duration: 0.5s; /* Duration for each property */
+            transition-timing-function: ease-in-out; /* Timing function for each property  example : linear ease ease-in ease-out ease-in-out		*/
+        }
+
+        .box-long:hover {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box-long" style="margin-top: 20px;"></div>
+</body>
+</html>
