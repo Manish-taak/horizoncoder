@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transform Example</title>
+    <style>
+        /* Container for arranging the boxes */
+        .container {
+            display: flex; /* Use Flexbox for layout */
+            justify-content: space-around; /* Distribute boxes evenly */
+            flex-wrap: wrap; /* Allow wrapping of boxes */
+            height: 100vh; /* Full viewport height */
+            align-items: center; /* Center boxes vertically */
+            background-color: #f0f0f0; /* Light gray background */
+        }
+
+
+
+
+        /* Base styles for each box */
+        .box {
+            width: 100px; /* Fixed width */
+            height: 100px; /* Fixed height */
+            background-color: #3498db; /* Default blue background */
+            margin: 10px; /* Space between boxes */
+            text-align: center; /* Center text horizontally */
+            line-height: 100px; /* Center text vertically */
+            color: white; /* White text color */
+            font-family: Arial, sans-serif; /* Font style */
+        }
+
+
+
+
+
+        /* Apply different transformations */
+        .translateX {
+            transform: translateX(100px); /* Move box 100px to the right */
+            background-color: #e74c3c; /* Red background to distinguish */
+        }
+
+
+
+
+
+        .translateY {
+            transform: translateY(100px); /* Move box 100px down */
+            background-color: #2ecc71; /* Green background to distinguish */
+        }
+
+
+
+
+
+        .translateZ {
+            transform: translateZ(100px); /* Move box 100px away from viewer (depth) */
+            background-color: #9b59b6; /* Purple background to distinguish */
+        }
+
+
+
+
+
+        .scaleX {
+            transform: scaleX(1.5); /* Scale box 1.5 times horizontally */
+            background-color: #f39c12; /* Orange background to distinguish */
+        }
+
+
+
+        .scaleY {
+            transform: scaleY(1.5); /* Scale box 1.5 times vertically */
+            background-color: #e67e22; /* Dark orange background to distinguish */
+        }
+
+
+
+
+        .scaleZ {
+            transform: scaleZ(1.5); /* Scale box 1.5 times in depth (3D scale) */
+            background-color: #1abc9c; /* Teal background to distinguish */
+        }
+
+
+
+
+
+        .rotateX {
+            transform: rotateX(30deg); /* Rotate box 30 degrees around the X-axis */
+            background-color: #d35400; /* Dark orange background to distinguish */
+        }
+
+
+
+
+
+        .rotateY {
+            transform: rotateY(30deg); /* Rotate box 30 degrees around the Y-axis */
+            background-color: #c0392b; /* Dark red background to distinguish */
+        }
+
+
+
+
+        .rotateZ {
+            transform: rotateZ(30deg); /* Rotate box 30 degrees around the Z-axis (2D rotation) */
+            background-color: #16a085; /* Dark teal background to distinguish */
+        }
+
+
+
+
+        .skewX {
+            transform: skewX(20deg); /* Skew box 20 degrees along the X-axis */
+            background-color: #27ae60; /* Green background to distinguish */
+        }
+
+
+
+
+        .skewY {
+            transform: skewY(20deg); /* Skew box 20 degrees along the Y-axis */
+            background-color: #2980b9; /* Blue background to distinguish */
+        }
+
+
+
+
+        .matrix {
+            transform: matrix(1, 0.5, -0.5, 1, 0, 0); /* Apply a custom 2D transformation matrix */
+            background-color: #8e44ad; /* Purple background to distinguish */
+        }
+
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Box with translateX transformation -->
+        <div class="box translateX">translateX</div>
+        <!-- Box with translateY transformation -->
+        <div class="box translateY">translateY</div>
+        <!-- Box with translateZ transformation -->
+        <div class="box translateZ">translateZ</div>
+        <!-- Box with scaleX transformation -->
+        <div class="box scaleX">scaleX</div>
+        <!-- Box with scaleY transformation -->
+        <div class="box scaleY">scaleY</div>
+        <!-- Box with scaleZ transformation -->
+        <div class="box scaleZ">scaleZ</div>
+        <!-- Box with rotateX transformation -->
+        <div class="box rotateX">rotateX</div>
+        <!-- Box with rotateY transformation -->
+        <div class="box rotateY">rotateY</div>
+        <!-- Box with rotateZ transformation -->
+        <div class="box rotateZ">rotateZ</div>
+        <!-- Box with skewX transformation -->
+        <div class="box skewX">skewX</div>
+        <!-- Box with skewY transformation -->
+        <div class="box skewY">skewY</div>
+        <!-- Box with matrix transformation -->
+        <div class="box matrix">matrix</div>
+    </div>
+</body>
+</html>

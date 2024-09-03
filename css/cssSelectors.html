@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors Overview</title>
+    <style>
+        /* Basic Selectors */
+
+        /* Universal Selector: selects all elements */
+        * {
+            color: blue;
+        }
+
+        /* Type Selector: selects all <p> elements */
+        p {
+            font-size: 16px;
+        }
+
+        /* Class Selector: selects elements with class "example" */
+        .example {
+            background-color: lightyellow;
+        }
+
+        /* ID Selector: selects element with ID "unique" */
+        #unique {
+            border: 1px solid black;
+        }
+
+        /* Attribute Selectors */
+
+        /* Attribute Presence Selector: selects elements with "data-info" attribute */
+        [data-info] {
+            font-style: italic;
+        }
+
+        /* Attribute Value Selector: selects input elements with type "text" */
+        [type="text"] {
+            border: 2px solid green;
+        }
+
+        /* Pseudo-classes */
+
+        /* :hover: selects elements when hovered over */
+        a:hover {
+            color: red;
+        }
+
+        /* :focus: selects elements that are focused */
+        input:focus {
+            outline: 2px solid orange;
+        }
+
+        /* :nth-child(): selects the nth child of a parent element */
+        ul li:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+
+        /* :nth-of-type(): selects the nth child of a specific type */
+        div:nth-of-type(2) {
+            color: purple;
+        }
+
+        /* :first-child and :last-child: selects the first and last child elements */
+        ul li:first-child {
+            font-weight: bold;
+        }
+
+        ul li:last-child {
+            font-style: italic;
+        }
+
+        /* Pseudo-elements */
+
+        /* ::before: inserts content before an element */
+        p::before {
+            content: "Note: ";
+            font-weight: bold;
+        }
+
+        /* ::after: inserts content after an element */
+        p::after {
+            content: " [End of paragraph]";
+            color: gray;
+        }
+
+        /* Combinators */
+
+        /* Descendant Combinator (space): selects descendants of an element */
+        div p {
+            margin-left: 20px;
+        }
+
+        /* Child Combinator (>): selects direct children of an element */
+        ul>li {
+            list-style-type: square;
+        }
+
+        /* Adjacent Sibling Combinator (+): selects the next sibling of an element */
+        h2+p {
+            color: teal;
+        }
+
+        /* General Sibling Combinator (~): selects all siblings after an element */
+        h2~p {
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CSS Selectors Overview</h1>
+
+    <p>This is a paragraph element styled with a type selector.</p>
+    <p class="example">This paragraph has a class selector applied.</p>
+    <div id="unique">This div has an ID selector applied.</div>
+    <input type="text" placeholder="Text input field">
+    <input type="password" placeholder="Password input field" data-info="hidden">
+
+    <h2>Example list</h2>
+    <ul>
+        <li>First item</li>
+        <li>Second item</li>
+        <li>Third item</li>
+    </ul>
+
+    <p>Hover over this link: <a href="#">Hover me!</a></p>
+    <p>Focus on the input above to see the focus style.</p>
+    <p>This paragraph has a ::before and ::after pseudo-element content.</p>
+</body>
+
+</html>

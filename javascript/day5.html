@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Day 5 : JavaScript DOM Methods and Functions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        .section {
+            margin-top: 20px;
+        }
+
+        .section h2 {
+            font-size: 22px;
+            color: #007bff;
+        }
+
+        .section p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .result {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #28a745;
+            background-color: #e6ffe6;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>JavaScript DOM Methods and Functions</h1>
+
+        <!-- getElementById -->
+        <div class="section">
+            <h2>getElementById</h2>
+            <p>This method selects an element by its <code>id</code> attribute.</p>
+            <p id="elementByIdExample">This text will change when you click the button.</p>
+            <button onclick="changeTextById()">Change Text</button>
+        </div>
+
+        <!-- getElementsByClassName -->
+        <div class="section">
+            <h2>getElementsByClassName</h2>
+            <p>This method selects all elements with a given class name. It returns a collection of elements.</p>
+            <div class="colorBox red">Red Box</div>
+            <div class="colorBox green">Green Box</div>
+            <div class="colorBox blue">Blue Box</div>
+            <button onclick="changeColorByClass()">Change Color of All Boxes</button>
+        </div>
+
+        <!-- querySelector and querySelectorAll -->
+        <div class="section">
+            <h2>querySelector and querySelectorAll</h2>
+            <p><code>querySelector</code> selects the first element that matches a CSS selector, while
+                <code>querySelectorAll</code> selects all matching elements.
+            </p>
+            <ul>
+                <li>First item</li>
+                <li>Second item</li>
+                <li>Third item</li>
+            </ul>
+            <button onclick="highlightFirstItem()">Highlight First Item</button>
+            <button onclick="highlightAllItems()">Highlight All Items</button>
+        </div>
+
+        <!-- createElement and appendChild -->
+        <div class="section">
+            <h2>createElement and appendChild</h2>
+            <p>You can create new elements and add them to the DOM using these methods.</p>
+            <button onclick="addNewItem()">Add New List Item</button>
+            <ul id="dynamicList">
+                <li>Existing item 1</li>
+                <li>Existing item 2</li>
+            </ul>
+        </div>
+
+        <!-- innerHTML -->
+        <div class="section">
+            <h2>innerHTML</h2>
+            <p>This property sets or returns the HTML content inside an element.</p>
+            <div id="htmlContent">Original content here...</div>
+            <button onclick="changeHtmlContent()">Change HTML Content</button>
+        </div>
+    </div>
+
+    <script>
+        // Example 1: getElementById
+        function changeTextById() {
+            // Selecting the element by its ID and changing its text content
+            document.getElementById('elementByIdExample').textContent = 'The text has been changed!';
+        }
+
+        // Example 2: getElementsByClassName
+        function changeColorByClass() {
+            // Selecting all elements with the class 'colorBox' and changing their background color
+            const boxes = document.getElementsByClassName('colorBox');
+            for (let i = 0; i < boxes.length; i++) {
+                boxes[i].style.backgroundColor = 'yellow';
+                boxes[i].style.color = 'black';
+            }
+        }
+
+        // Example 3: querySelector and querySelectorAll
+        function highlightFirstItem() {
+            // Selecting the first list item and changing its background color
+            const firstItem = document.querySelector('ul li');
+            firstItem.style.backgroundColor = 'lightblue';
+        }
+
+        function highlightAllItems() {
+            // Selecting all list items and changing their background color
+            const allItems = document.querySelectorAll('ul li');
+            allItems.forEach(item => {
+                item.style.backgroundColor = 'lightgreen';
+            });
+        }
+
+        // Example 4: createElement and appendChild
+        function addNewItem() {
+            // Creating a new list item and adding it to the unordered list
+            const newItem = document.createElement('li');
+            newItem.textContent = 'Newly added item';
+            document.getElementById('dynamicList').appendChild(newItem);
+        }
+
+        // Example 5: innerHTML
+        function changeHtmlContent() {
+            // Changing the HTML content inside the div with id 'htmlContent'
+            document.getElementById('htmlContent').innerHTML = '<strong>New HTML content!</strong>';
+        }
+    </script>
+</body>
+
+</html>

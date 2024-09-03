@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Day 4 : JavaScript Functions Tutorial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .example {
+            background-color: #e8f5e9;
+            padding: 10px;
+            border-left: 4px solid #4caf50;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .example pre {
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Learn JavaScript Functions</h1>
+
+        <!-- Normal Function -->
+        <div class="example">
+            <h2>1. Normal Function</h2>
+            <p>A normal function is the most common way to define a function in JavaScript.</p>
+            <pre><code>function sayHello() {
+    console.log("Hello, world!");
+}</code></pre>
+            <button onclick="sayHello()">Run Normal Function</button>
+        </div>
+
+        <!-- Arrow Function -->
+        <div class="example">
+            <h2>2. Arrow Function</h2>
+            <p>An arrow function is a shorter way to write a function in JavaScript.</p>
+            <pre><code>const sayHelloArrow = () => {
+    console.log("Hello from an arrow function!");
+}</code></pre>
+            <button onclick="sayHelloArrow()">Run Arrow Function</button>
+        </div>
+
+        <!-- Callback Function -->
+        <div class="example">
+            <h2>3. Callback Function</h2>
+            <p>A callback function is a function passed as an argument to another function.</p>
+            <pre><code>function greetUser(callback) {
+    console.log("Greeting user...");
+    callback();
+}
+
+function displayMessage() {
+    console.log("This is a callback function!");
+}</code></pre>
+            <button onclick="greetUser(displayMessage)">Run Callback Function</button>
+        </div>
+
+
+
+        <h1>Function Parameters and Return Values</h1>
+
+        <!-- Function with Parameters -->
+        <div class="example">
+            <h2>1. Function with Parameters</h2>
+            <p>Parameters are inputs you can pass into a function to change its behavior.</p>
+            <pre><code>function addNumbers(a, b) {
+    console.log(a + b);
+}</code></pre>
+            <button onclick="addNumbers(5, 10)">Run Function with Parameters</button>
+        </div>
+
+        <!-- Function with Return Value -->
+        <div class="example">
+            <h2>2. Function with Return Value</h2>
+            <p>A function can return a value, which can be used later in your code.</p>
+            <pre><code>function multiplyNumbers(a, b) {
+    return a * b;
+}</code></pre>
+            <button onclick="showMultiplicationResult()">Run Function with Return Value</button>
+        </div>
+
+
+
+
+    </div>
+
+    <script>
+        // Normal Function
+        function sayHello() {
+            console.log("Hello, world!");
+        }
+
+        // Arrow Function
+        const sayHelloArrow = () => {
+            console.log("Hello from an arrow function!");
+        }
+
+        // Callback Function
+        function greetUser(callback) {
+            console.log("Greeting user...");
+            callback();
+        }
+
+        function displayMessage() {
+            console.log("This is a callback function!");
+        }
+
+
+
+        // =========================================================Function Parameters and Return Value ================================================= //
+
+
+
+
+        // Function with Parameters
+        function addNumbers(a, b) {
+            console.log(a + b);
+        }
+
+        // Function with Return Value
+        function multiplyNumbers(a, b) {
+            return a * b;
+        }
+
+        function showMultiplicationResult() {
+            const result = multiplyNumbers(3, 4);
+            console.log("Multiplication result: " + result);
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>
