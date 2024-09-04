@@ -9,23 +9,34 @@
         .inline {
             display: inline;
             width: 500px;
+            background-color: red;
             /* nothing apply to inline element*/
         }
 
         .inline-block {
             display: inline-block;
+            background-color: blue;
             width: 500px;
             /*its is also an inline element but but you can change height width*/
         }
 
         .block {
             display: block;
+            background-color: orange;
             width: 500px;
             /* height width ca apply but next element will always move to new line because of display block property but if this is under a flex container display block not work*/
         }
 
         div {
             display: flex;
+        }
+
+        .block + h1{
+            background-color: orange;
+        }
+        h1{
+            text-align: center;
+            font-size: 40px;
         }
     </style>
 </head>
