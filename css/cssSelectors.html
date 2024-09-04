@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,7 +36,7 @@
         }
 
         /* Attribute Value Selector: selects input elements with type "text" */
-        input[type="text"] {
+        [type="text"] {
             border: 2px solid green;
         }
 
@@ -65,6 +66,7 @@
         ul li:first-child {
             font-weight: bold;
         }
+
         ul li:last-child {
             font-style: italic;
         }
@@ -91,17 +93,17 @@
         }
 
         /* Child Combinator (>): selects direct children of an element */
-        ul > li {
+        ul>li {
             list-style-type: square;
         }
 
         /* Adjacent Sibling Combinator (+): selects the next sibling of an element */
-        h2 + p {
+        h2+p {
             color: teal;
         }
 
         /* General Sibling Combinator (~): selects all siblings after an element */
-        h2 ~ p {
+        h2~p {
             font-size: 14px;
         }
         h1{
@@ -110,6 +112,7 @@
         }
     </style>
 </head>
+
 <body>
     <h1>CSS Selectors Overview</h1>
 
@@ -130,4 +133,5 @@
     <p>Focus on the input above to see the focus style.</p>
     <p>This paragraph has a ::before and ::after pseudo-element content.</p>
 </body>
+
 </html>

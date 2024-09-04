@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> day 3 part 2 : JavaScript For Loops Tutorial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .section {
+            background: #fff;
+            padding: 20px 30px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: #555;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid #2196F3;
+            overflow-x: auto;
+        }
+
+        button {
+            background-color: #2196F3;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0b7dda;
+        }
+
+        .output {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #e7f3fe;
+            border-left: 4px solid #2196F3;
+            border-radius: 4px;
+            white-space: pre-wrap;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>JavaScript For Loops Tutorial</h1>
+
+    <!-- For Loop Section -->
+    <div class="section" id="for-loop">
+        <h2>1. For Loop</h2>
+        <p>The <code>for</code> loop is used to execute a block of code a specific number of times.</p>
+        <pre><code>
+for (let i = 0; i &lt; 5; i++) {
+    console.log('Iteration number: ' + i);
+}
+        </code></pre>
+        <button onclick="runForLoop()">Run For Loop</button>
+        <div class="output" id="for-loop-output">
+
+        </div>
+    </div>
+
+    <!-- For...in Loop Section -->
+    <div class="section" id="for-in-loop">
+        <h2>2. For...in Loop</h2>
+        <p>The <code>for...in</code> loop iterates over the enumerable properties of an object.</p>
+        <pre><code>
+const person = {
+    firstName: 'Jane',
+    lastName: 'Doe',
+    age: 25
+};
+
+for (let key in person) {
+    console.log(key + ': ' + person[key]);
+}
+        </code></pre>
+        <button onclick="runForInLoop()">Run For...in Loop</button>
+        <div class="output" id="for-in-loop-output"></div>
+    </div>
+
+    <!-- For...of Loop Section -->
+    <div class="section" id="for-of-loop">
+        <h2>3. For...of Loop</h2>
+        <p>The <code>for...of</code> loop iterates over the values of an iterable object like an array.</p>
+        <pre><code>
+const fruits = ['Apple', 'Banana', 'Cherry'];
+
+for (let fruit of fruits) {
+    console.log(fruit);
+}
+        </code></pre>
+        <button onclick="runForOfLoop()">Run For...of Loop</button>
+        <div class="output" id="for-of-loop-output"></div>
+    </div>
+
+    <script>
+        // Function to run the For Loop
+        function runForLoop() {
+            let output = '';
+            for (let i = 0; i < 5; i++) {
+                output += 'Iteration number: ' + i + '<br>';
+            }
+            document.getElementById('for-loop-output').innerHTML = output;
+        }
+
+        // Function to run the For...in Loop
+        function runForInLoop() {
+            const person = {
+                firstName: 'Jane',
+                lastName: 'Doe',
+                age: 25
+            };
+            let output = '';
+            for (let key in person) {
+                if (person.hasOwnProperty(key)) { // Ensuring the property belongs to the object
+                    output += key + ': ' + person[key] + '<br>';
+                }
+            }
+            document.getElementById('for-in-loop-output').innerHTML = output;
+        }
+
+        // Function to run the For...of Loop
+        function runForOfLoop() {
+            const fruits = ['Apple', 'Banana', 'Cherry'];
+            let output = '';
+            for (let fruit of fruits) {
+                output += fruit + '<br>';
+            }
+            document.getElementById('for-of-loop-output').innerHTML = output;
+        }
+    </script>
+</body>
+
+</html>
