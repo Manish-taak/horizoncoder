@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Day 6 : JavaScript Scope and Closures</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .code {
+            background-color: #f7f7f7;
+            padding: 10px;
+            border-left: 5px solid #333;
+            margin: 20px 0;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+
+        h2 {
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+    <h1 style="text-align: center;" >Day 6 </h1>
+
+        <h2>JavaScript Scope and Closures</h2>
+
+        <h3>Understanding Local and Global Scope</h3>
+        <p>In JavaScript, <b>scope</b> determines the accessibility of variables and functions. There are two main types
+            of scope:</p>
+        <ul>
+            <li><b>Global Scope:</b> Variables declared outside any function are in the global scope and can be accessed
+                anywhere in the script.</li>
+            <li><b>Local Scope:</b> Variables declared inside a function are in the local scope and can only be accessed
+                within that function.</li>
+        </ul>
+
+        <div class="code">
+            <pre>
+                <code>
+// Global Scope
+let globalVariable = "I am a global variable";
+
+function exampleFunction() {
+    // Local Scope
+    let localVariable = "I am a local variable";
+    console.log(globalVariable); // Accessible
+    console.log(localVariable); // Accessible
+}
+
+exampleFunction();
+
+console.log(globalVariable); // Accessible
+console.log(localVariable); // Unaccessible, will cause an error
+                </code>
+            </pre>
+        </div>
+
+        <h3>What is a Closure?</h3>
+        <p>A <b>closure</b> is a feature in JavaScript where an inner function has access to the outer (enclosing)
+            function's variables, even after the outer function has returned. This allows for private variables and
+            functions to be created.</p>
+
+        <div class="code">
+            <pre>
+                <code>
+function outerFunction() {
+    let outerVariable = "I am from the outer function";
+
+    function innerFunction() {
+        console.log(outerVariable); // This is a closure
+    }
+
+    return innerFunction;
+}
+
+const closureExample = outerFunction(); // outerFunction() returns innerFunction
+closureExample(); // Logs: "I am from the outer function"
+                </code>
+            </pre>
+        </div>
+
+        <h3>Practical Use Case of Closures</h3>
+        <p>Closures are often used to create private variables or functions. For example, you can use closures to create
+            a counter function that has its own private count variable:</p>
+
+        <div class="code">
+            <pre>
+                <code>
+function createCounter() {
+    let count = 0; // Private variable
+
+    return function() {
+        count++;
+        console.log("Counter: " + count);
+    };
+}
+
+const counter = createCounter();
+counter(); // Counter: 1
+counter(); // Counter: 2
+counter(); // Counter: 3
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <script>
+        // Running the examples in JavaScript console
+        let globalVariable = "I am a global variable";
+
+        function exampleFunction() {
+            let localVariable = "I am a local variable";
+            console.log(globalVariable);
+            console.log(localVariable);
+        }
+
+        exampleFunction();
+
+        // Closure Example
+        function outerFunction() {
+            let outerVariable = "I am from the outer function";
+
+            function innerFunction() {
+                console.log(outerVariable);
+            }
+
+            return innerFunction;
+        }
+
+        const closureExample = outerFunction();
+        closureExample();
+
+        // Practical Closure Use Case
+        function createCounter() {
+            let count = 0;
+
+            return function () {
+                count++;
+                console.log("Counter: " + count);
+            };
+        }
+
+        const counter = createCounter();
+        counter();
+        counter();
+        counter();
+
+    </script>
+</body>
+
+</html>

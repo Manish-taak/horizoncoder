@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async/Await in JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #1E90FF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #FF4500;
+        }
+
+        .code {
+            background-color: #f7f7f7;
+            padding: 10px;
+            border-left: 5px solid #333;
+            margin: 10px 0;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+
+        .output {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="text-align: center;">Day 11 </h1>
+
+        <h2>Async/Await in JavaScript</h2>
+
+        <!-- Async/Await Example -->
+        <h3>1. Simplifying Asynchronous Code with Async/Await</h3>
+        <p>Using <strong>async/await</strong> makes asynchronous code easier to read and maintain, avoiding the need for
+            nested callbacks or complex promise chains.</p>
+        <button onclick="executeAsyncAwait()">Run Async/Await Example</button>
+        <div class="output" id="asyncOutput"></div>
+
+        <div class="code">
+            <pre>
+                <code>
+async function fetchDataAsync() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            document.getElementById('asyncOutput').innerText += "Data fetched from server.\n";
+            resolve();
+        }, 1000);
+    });
+}
+
+async function processDataAsync() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            document.getElementById('asyncOutput').innerText += "Data processed.\n";
+            resolve();
+        }, 1000);
+    });
+}
+
+async function saveDataAsync() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            document.getElementById('asyncOutput').innerText += "Data saved.\n";
+            resolve();
+        }, 1000);
+    });
+}
+
+// Example of Async/Await
+async function executeAsyncAwait() {
+    try {
+        await fetchDataAsync();
+        await processDataAsync();
+        await saveDataAsync();
+        document.getElementById('asyncOutput').innerText += "All tasks completed.";
+    } catch (error) {
+        document.getElementById('asyncOutput').innerText += "An error occurred: " + error;
+    }
+}
+                </code>
+            </pre>
+        </div>
+
+        <!-- Error Handling in Async/Await -->
+        <h3>2. Error Handling in Async/Await</h3>
+        <p>Using <strong>try...catch</strong> blocks to handle errors in asynchronous operations is simple and effective
+            with async/await.</p>
+        <button onclick="executeAsyncAwaitWithError()">Run Async/Await with Error Handling Example</button>
+        <div class="output" id="errorOutput"></div>
+
+        <div class="code">
+            <pre>
+                <code>
+async function fetchDataWithError() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            document.getElementById('errorOutput').innerText += "Data fetching failed.\n";
+            reject("Network error");
+        }, 1000);
+    });
+}
+
+// Example of Async/Await with Error Handling
+async function executeAsyncAwaitWithError() {
+    try {
+        await fetchDataWithError();
+    } catch (error) {
+        document.getElementById('errorOutput').innerText += "Caught an error: " + error;
+    }
+}
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <script>
+        // Async/Await Example
+        async function fetchDataAsync() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    document.getElementById('asyncOutput').innerText += "Data fetched from server.\n";
+                    resolve();
+                }, 1000);
+            });
+        }
+
+        async function processDataAsync() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    document.getElementById('asyncOutput').innerText += "Data processed.\n";
+                    resolve();
+                }, 1000);
+            });
+        }
+
+        async function saveDataAsync() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    document.getElementById('asyncOutput').innerText += "Data saved.\n";
+                    resolve();
+                }, 1000);
+            });
+        }
+
+        async function executeAsyncAwait() {
+            try {
+                await fetchDataAsync();
+                await processDataAsync();
+                await saveDataAsync();
+                document.getElementById('asyncOutput').innerText += "All tasks completed.";
+            } catch (error) {
+                document.getElementById('asyncOutput').innerText += "An error occurred: " + error;
+            }
+        }
+
+        // Async/Await with Error Handling
+        async function fetchDataWithError() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    document.getElementById('errorOutput').innerText += "Data fetching failed.\n";
+                    reject("Network error");
+                }, 1000);
+            });
+        }
+
+        async function executeAsyncAwaitWithError() {
+            try {
+                await fetchDataWithError();
+            } catch (error) {
+                document.getElementById('errorOutput').innerText += "Caught an error: " + error;
+            }
+        }
+    </script>
+</body>
+
+</html>
+

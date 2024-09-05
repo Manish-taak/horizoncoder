@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Event Handling</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #1E90FF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #FF4500;
+        }
+
+        #output {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="text-align: center;">Day 9 </h1>
+
+        <h2>JavaScript Event Handling Examples</h2>
+
+        <!-- Click Event -->
+        <h3>1. Click Event</h3>
+        <button onclick="handleClick()">Click Me</button>
+        <div id="output"></div>
+
+        <!-- Mouseover Event -->
+        <h3>2. Mouseover Event</h3>
+        <button onmouseover="handleMouseOver()">Hover Over Me</button>
+        <div id="mouseOutput"></div>
+
+        <!-- Keydown Event -->
+        <h3>3. Keydown Event</h3>
+        <input type="text" onkeydown="handleKeyDown(event)" placeholder="Type something...">
+        <div id="keyOutput"></div>
+
+        <!-- Form Submit Event -->
+        <h3>4. Form Submit Event</h3>
+        <form onsubmit="handleSubmit(event)">
+            <input type="text" id="nameInput" placeholder="Enter your name">
+            <button type="submit">Submit</button>
+        </form>
+        <div id="formOutput"></div>
+    </div>
+
+    <script>
+        // Click Event Handler
+        function handleClick() {
+            document.getElementById('output').innerText = "Button was clicked!";
+        }
+
+        // Mouseover Event Handler
+        function handleMouseOver() {
+            document.getElementById('mouseOutput').innerText = "Mouse is over the button!";
+        }
+
+        // Keydown Event Handler
+        function handleKeyDown(event) {
+            document.getElementById('keyOutput').innerText = "Key pressed: " + event.key;
+        }
+
+        // Form Submit Event Handler
+        function handleSubmit(event) {
+            event.preventDefault(); // Prevent the form from submitting
+            let name = document.getElementById('nameInput').value;
+            document.getElementById('formOutput').innerText = "Form submitted. Hello, " + name + "!";
+        }
+    </script>
+</body>
+
+</html>
