@@ -1,52 +1,83 @@
 <!-- Wellcome -->
 
+<!-- HTML stands for Hypertext Markup Language, and it's the code used to structure and define the content of web pages. HTML is a text-based language that tells web browsers how to display content like text, images, and other multimedia. -->
+
+<!-- 
+History and Evolution of HTML
+HTML (HyperText Markup Language) was developed to structure and present content on the web. It has evolved significantly since its creation, with new versions being introduced to enhance functionality, support modern web development practices, and address the needs of developers and users.
+
+Here’s a brief timeline of the key versions and milestones in the history of HTML:
+
+HTML 1.0 (1993):
+The first official version of HTML, introduced by Tim Berners-Lee. It provided a basic structure for web pages, allowing the use of simple elements like paragraphs (<p>), headings (<h1>, <h2>, etc.), links (<a>), and lists (<ul>, <ol>). This version laid the foundation for how web content was formatted and displayed.
+
+HTML 2.0 (1995):
+The second version standardized many elements that were being used in web development. It added new features such as support for forms (<form>, <input>, <textarea>, etc.) to capture user input. This version was a collaborative effort and was defined by the Internet Engineering Task Force (IETF).
+
+HTML 3.2 (1997):
+Developed by the World Wide Web Consortium (W3C), this version brought more styling capabilities to HTML, such as the <font> tag for changing text appearance and support for complex tables. It also introduced scripting capabilities, such as JavaScript, allowing dynamic content on web pages.
+
+HTML 4.01 (1999):
+A major update that introduced support for Cascading Style Sheets (CSS), allowing for the separation of content from design and style. This version also improved accessibility features and multimedia integration (e.g., images, audio, video). HTML 4.01 aimed to provide better structure and semantics for web documents, and it included support for international characters through Unicode.
+
+XHTML 1.0 (2000):
+XHTML (Extensible Hypertext Markup Language) was an evolution of HTML 4.01. It combined the flexibility of HTML with the strict syntax rules of XML (Extensible Markup Language). This version required well-formed documents, meaning all tags had to be properly closed and nested. XHTML 1.0 was intended to make HTML more extensible and improve its compatibility with XML-based systems.
+
+HTML5 (2014):
+The most current and widely used version of HTML, developed by the W3C and WHATWG (Web Hypertext Application Technology Working Group). HTML5 introduced many new features and capabilities to accommodate modern web development needs:
+
+New semantic elements: Such as <header>, <footer>, <article>, <section>, and <nav>, providing better structure and accessibility.
+Multimedia support: Native support for audio (<audio>) and video (<video>) without requiring third-party plugins.
+APIs for web apps: New APIs for offline web applications, local storage, and more.
+Improved form controls: New input types like date, email, range, etc., to enhance user interactions.
+Mobile optimization: Improved responsiveness for mobile devices and touch interfaces. -->
+
 <!DOCTYPE html>
 <html lang="en">
-<!-- The DOCTYPE declaration defines the document type and version of HTML. Here it declares an HTML5 document. -->
+  <!-- The DOCTYPE declaration defines the document type and version of HTML. Here it declares an HTML5 document. -->
 
-<head>
+  <head>
     <!-- The <head> tag contains meta-information about the document, such as the character set and title. -->
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <!-- This sets the character encoding for the document to UTF-8, which supports almost all written languages. -->
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- This meta tag sets the viewport to make the website responsive, ensuring it looks good on different devices. -->
 
-    <title>Tntro Day </title>
+    <title>Tntro Day</title>
     <!-- The <title> tag sets the title of the webpage that appears in the browser's title bar or tab. -->
 
     <style>
-        /* CSS styles go here. These styles apply to all elements and specific elements like html and body. */
+      /* CSS styles go here. These styles apply to all elements and specific elements like html and body. */
 
-        * {
-            /* The asterisk (*) is a universal selector that targets all elements. */
-            padding: 0%;
-            /* Removes any default padding from all elements. */
-            margin: 0%;
-            /* Removes any default margin from all elements. */
-            box-sizing: border-box;
-            /* Ensures padding and borders are included within the width and height of elements. */
-        }
+      * {
+        /* The asterisk (*) is a universal selector that targets all elements. */
+        padding: 0%;
+        /* Removes any default padding from all elements. */
+        margin: 0%;
+        /* Removes any default margin from all elements. */
+        box-sizing: border-box;
+        /* Ensures padding and borders are included within the width and height of elements. */
+      }
 
-        html,
-        body {
-            /* Targets both the <html> and <body> tags. */
-            width: 100%;
-            /* Sets the width of both the html and body elements to 100% of the viewport width. */
-            height: 100vh;
-            /* Sets the height of both elements to 100% of the viewport height (100vh). */
-        }
+      html,
+      body {
+        /* Targets both the <html> and <body> tags. */
+        width: 100%;
+        /* Sets the width of both the html and body elements to 100% of the viewport width. */
+        height: 100vh;
+        /* Sets the height of both elements to 100% of the viewport height (100vh). */
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- The <body> tag contains all the visible content of the webpage. -->
 
     <!-- Content of the webpage goes here. -->
-</body>
+  </body>
 
-<script>
+  <script>
     /* JavaScript code can be added here to make the webpage interactive. */
-</script>
-
+  </script>
 </html>

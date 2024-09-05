@@ -1,67 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BOX MODEL</title>
+    <style>
+      .padding1 {
+        padding: 50px 50px 50px 50px;
+        /* syntax :- padding : top right bottom left */
+        padding: 50px 50px;
+        /* padding: top-bottom left-right*/
+        padding: 50px;
+        /* padding : from all sides*/
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BOX MODEL</title>
-  <style>
-    
-    .padding1 {
-      padding: 50px 50px 50px 50px;
-      /* syntax :- padding : top right bottom left */
-      padding: 50px 50px;
-      /* padding: top-bottom left-right*/
-      padding: 50px;
-      /* padding : from all sides*/
-
-
-      /* Using three values for padding */
-      padding: 10px 30px 50px;
-      /* 
+        /* Using three values for padding */
+        padding: 50px 50px 50px;
+        /* 
    - 10px: Top padding 
    - 30px: Right and left padding 
    - 50px: Bottom padding 
 */
+        background-color: yellow;
+      }
 
+      .margin1 {
+        margin: 50px 50px 50px 50px;
+        /* syntax :- margin : top right bottom left */
+        margin: 50px 50px;
+        /* margin: top-bottom left-right*/
+        margin: 50px;
+        /* margin : from all sides*/
 
-    }
-
-    .margin1 {
-      margin: 50px 50px 50px 50px;
-      /* syntax :- margin : top right bottom left */
-      margin: 50px 50px;
-      /* margin: top-bottom left-right*/
-      margin: 50px;
-      /* margin : from all sides*/
-
-
-      /* Using three values for padding */
-      margin: 10px 30px 50px;
-      /* 
+        /* Using three values for padding */
+        margin: 50px 50px 50px;
+        /* 
    - 10px: Top margin 
    - 30px: Right and left margin 
    - 50px: Bottom margin 
 */
 
-    }
+        background-color: red;
+      }
 
-    .border {
-      border: 1px solid red;
-      /* define border for an element border: border-width solid border-color */
-      border: 1px;
-      /* it only defines border width*/
-      border-color: red;
-      /* it only define border color*/
-    }
-  </style>
-</head>
+      .border1 {
+        border: 1px solid red;
+        /* define border for an element border: border-width solid border-color */
+        border-width: 1px;
+        /* it only defines border width*/
+        border-color: red;
+        /* it only define border color*/
+        padding: 50px 50px 50px;
+        margin: 50px 50px 50px;
+        background-color: orange;
+      }
+      h2{
+        text-align: center;
+        font-size: 40px;
+      }
+    </style>
+  </head>
 
-<body>
-  <h1 class="padding1">CHECK THE PADDING </h1>
-  <h1 class="margin1">CHECK THE MARGIN</h1>
-  <h1 class="border1">CHECK THE BORDER</h1>
-
-</body>
-
+  <body>
+    <h2>Box Model</h2>
+    <h1 class="padding1">CHECK THE PADDING</h1>
+    <h1 class="margin1">CHECK THE MARGIN</h1>
+    <h1 class="border1">CHECK THE BORDER</h1>
+  </body>
 </html>
