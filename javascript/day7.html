@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Day 7 : JavaScript Methods: String, Array, Math, Object, Date</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1E90FF;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #FF4500;
+        }
+
+        .code {
+            background-color: #f7f7f7;
+            padding: 10px;
+            border-left: 5px solid #333;
+            margin: 10px 0;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;" >Day 7 </h1>
+
+    <!-- String Methods -->
+    <div class="container">
+        <h2>String Methods</h2>
+        <a href="https://www.w3schools.com/js/js_string_methods.asp" target="_blank">Learn more about String Methods on
+            W3Schools</a>
+        <div class="code">
+            <pre>
+                <code>
+let greeting = "Hello, World!";
+console.log(greeting.toUpperCase()); // Converts to uppercase
+console.log(greeting.replace("World", "JavaScript")); // Replaces "World" with "JavaScript"
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <!-- Array Methods -->
+    <div class="container">
+        <h2>Array Methods</h2>
+        <a href="https://www.w3schools.com/js/js_array_methods.asp" target="_blank">Learn more about Array Methods on
+            W3Schools</a>
+        <div class="code">
+            <pre>
+                <code>
+let fruits = ["Apple", "Banana"];
+fruits.push("Mango"); // Adds "Mango" to the array
+console.log(fruits);
+fruits.pop(); // Removes the last element
+console.log(fruits);
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <!-- Math Methods -->
+    <div class="container">
+        <h2>Math Methods</h2>
+        <a href="https://www.w3schools.com/js/js_math.asp" target="_blank">Learn more about Math Methods on
+            W3Schools</a>
+        <div class="code">
+            <pre>
+                <code>
+console.log(Math.PI); // Prints the value of PI
+console.log(Math.sqrt(16)); // Prints the square root of 16
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <!-- Object Methods -->
+    <div class="container">
+        <h2>Object Methods</h2>
+        <a href="https://www.w3schools.com/js/js_objects.asp" target="_blank">Learn more about Object Methods on
+            W3Schools</a>
+        <div class="code">
+            <pre>
+                <code>
+let car = { brand: "Toyota", model: "Camry" };
+console.log(car.brand); // Accesses the "brand" property
+car.model = "Corolla"; // Modifies the "model" property
+console.log(car);
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <!-- Date Methods -->
+    <div class="container">
+        <h2>Date Methods</h2>
+        <a href="https://www.w3schools.com/js/js_dates.asp" target="_blank">Learn more about Date Methods on
+            W3Schools</a>
+        <div class="code">
+            <pre>
+                <code>
+let currentDate = new Date();
+console.log(currentDate); // Prints the current date and time
+console.log(currentDate.getFullYear()); // Gets the year
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <script>
+        // String Methods
+        let greeting = "Hello, World!";
+        console.log(greeting.toUpperCase());
+        console.log(greeting.replace("World", "JavaScript"));
+
+        // Array Methods
+        let fruits = ["Apple", "Banana"];
+        fruits.push("Mango");
+        console.log(fruits);
+        fruits.pop();
+        console.log(fruits);
+
+        // Math Methods
+        console.log(Math.PI);
+        console.log(Math.sqrt(16));
+
+        // Object Methods
+        let car = { brand: "Toyota", model: "Camry" };
+        console.log(car.brand);
+        car.model = "Corolla";
+        console.log(car);
+
+        // Date Methods
+        let currentDate = new Date();
+        console.log(currentDate);
+        console.log(currentDate.getFullYear());
+    </script>
+</body>
+
+</html>

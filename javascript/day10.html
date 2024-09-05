@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> day 10 : Asynchronous Programming in JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #1E90FF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #FF4500;
+        }
+
+        .code {
+            background-color: #f7f7f7;
+            padding: 10px;
+            border-left: 5px solid #333;
+            margin: 10px 0;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+
+        .output {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="text-align: center;">Day 10 </h1>
+
+        <h2>Asynchronous Programming in JavaScript</h2>
+
+        <!-- Callbacks and Callback Hell -->
+        <h3>1. Callbacks and Callback Hell</h3>
+        <p>A <strong>callback</strong> is a function passed as an argument to another function to be executed later,
+            often after an asynchronous task is complete. <strong>Callback Hell</strong> occurs when multiple callbacks
+            are nested, making the code difficult to read and maintain.</p>
+        <button onclick="executeCallbackHell()">Run Callback Hell Example</button>
+        <div class="output" id="callbackOutput"></div>
+
+        <div class="code">
+            <pre>
+                <code>
+function fetchData(callback) {
+    setTimeout(() => {
+        document.getElementById('callbackOutput').innerText += "Data fetched from server.\n";
+        callback();
+    }, 1000);
+}
+
+function processData(callback) {
+    setTimeout(() => {
+        document.getElementById('callbackOutput').innerText += "Data processed.\n";
+        callback();
+    }, 1000);
+}
+
+function saveData(callback) {
+    setTimeout(() => {
+        document.getElementById('callbackOutput').innerText += "Data saved.\n";
+        callback();
+    }, 1000);
+}
+
+// Example of Callback Hell
+function executeCallbackHell() {
+    fetchData(function() {
+        processData(function() {
+            saveData(function() {
+                document.getElementById('callbackOutput').innerText += "All tasks completed.";
+            });
+        });
+    });
+}
+                </code>
+            </pre>
+        </div>
+
+        <!-- Promises and Promise Chaining -->
+        <h3>2. Promises and Promise Chaining</h3>
+        <p>A <strong>Promise</strong> is an object that represents the eventual completion (or failure) of an
+            asynchronous operation. It helps avoid callback hell by allowing you to chain asynchronous calls in a more
+            readable way.</p>
+        <button onclick="executePromiseChaining()">Run Promise Chaining Example</button>
+        <div class="output" id="promiseOutput"></div>
+
+        <div class="code">
+            <pre>
+                <code>
+function fetchDataPromise() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            document.getElementById('promiseOutput').innerText += "Data fetched from server.\n";
+            resolve();
+        }, 1000);
+    });
+}
+
+function processDataPromise() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            document.getElementById('promiseOutput').innerText += "Data processed.\n";
+            resolve();
+        }, 1000);
+    });
+}
+
+function saveDataPromise() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            document.getElementById('promiseOutput').innerText += "Data saved.\n";
+            resolve();
+        }, 1000);
+    });
+}
+
+// Example of Promise Chaining
+function executePromiseChaining() {
+    fetchDataPromise()
+        .then(processDataPromise)
+        .then(saveDataPromise)
+        .then(() => {
+            document.getElementById('promiseOutput').innerText += "All tasks completed.";
+        })
+        .catch((error) => {
+            document.getElementById('promiseOutput').innerText += "An error occurred: " + error;
+        });
+}
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <script>
+        // Callback Hell Example
+        function fetchData(callback) {
+            setTimeout(() => {
+                document.getElementById('callbackOutput').innerText += "Data fetched from server.\n";
+                callback();
+            }, 1000);
+        }
+
+        function processData(callback) {
+            setTimeout(() => {
+                document.getElementById('callbackOutput').innerText += "Data processed.\n";
+                callback();
+            }, 1000);
+        }
+
+        function saveData(callback) {
+            setTimeout(() => {
+                document.getElementById('callbackOutput').innerText += "Data saved.\n";
+                callback();
+            }, 1000);
+        }
+
+        function executeCallbackHell() {
+            fetchData(function () {
+                processData(function () {
+                    saveData(function () {
+                        document.getElementById('callbackOutput').innerText += "All tasks completed.";
+                    });
+                });
+            });
+        }
+
+        // Promise Chaining Example
+        function fetchDataPromise() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    document.getElementById('promiseOutput').innerText += "Data fetched from server.\n";
+                    resolve();
+                }, 1000);
+            });
+        }
+
+        function processDataPromise() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    document.getElementById('promiseOutput').innerText += "Data processed.\n";
+                    resolve();
+                }, 1000);
+            });
+        }
+
+        function saveDataPromise() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    document.getElementById('promiseOutput').innerText += "Data saved.\n";
+                    resolve();
+                }, 1000);
+            });
+        }
+
+        function executePromiseChaining() {
+            fetchDataPromise()
+                .then(processDataPromise)
+                .then(saveDataPromise)
+                .then(() => {
+                    document.getElementById('promiseOutput').innerText += "All tasks completed.";
+                })
+                .catch((error) => {
+                    document.getElementById('promiseOutput').innerText += "An error occurred: " + error;
+                });
+        }
+    </script>
+</body>
+
+</html>

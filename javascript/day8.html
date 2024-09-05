@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> day 8 : JavaScript BOM Methods: alert(), prompt(), confirm()</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #1E90FF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #FF4500;
+        }
+
+        .code {
+            background-color: #f7f7f7;
+            padding: 10px;
+            border-left: 5px solid #333;
+            margin: 10px 0;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 style="text-align: center;">Day 8 </h1>
+        <h2>JavaScript BOM Methods: <code>alert()</code>, <code>prompt()</code>, <code>confirm()</code></h2>
+        <p>These methods are used to interact with the user. They are part of the <strong>window</strong> object in the
+            Browser Object Model (BOM).</p>
+
+        <h3>1. <code>alert()</code> Method</h3>
+        <p>The <code>alert()</code> method displays an alert dialog with a specified message and an "OK" button.</p>
+        <button onclick="showAlert()">Show Alert</button>
+        <div class="code">
+            <pre>
+                <code>
+function showAlert() {
+    alert("Hello! This is an alert message.");
+}
+                </code>
+            </pre>
+        </div>
+
+        <h3>2. <code>prompt()</code> Method</h3>
+        <p>The <code>prompt()</code> method displays a dialog with a text input field, allowing the user to enter some
+            text. The input is then returned as a string.</p>
+        <button onclick="showPrompt()">Show Prompt</button>
+        <div class="code">
+            <pre>
+                <code>
+function showPrompt() {
+    let name = prompt("Please enter your name:");
+    if (name !== null && name !== "") {
+        alert("Hello, " + name + "!");
+    }
+}
+                </code>
+            </pre>
+        </div>
+
+        <h3>3. <code>confirm()</code> Method</h3>
+        <p>The <code>confirm()</code> method displays a dialog with a specified message, along with "OK" and "Cancel"
+            buttons. It returns <code>true</code> if the user clicks "OK", and <code>false</code> if they click
+            "Cancel".</p>
+        <button onclick="showConfirm()">Show Confirm</button>
+        <div class="code">
+            <pre>
+                <code>
+function showConfirm() {
+    let result = confirm("Do you want to proceed?");
+    if (result) {
+        alert("You clicked OK.");
+    } else {
+        alert("You clicked Cancel.");
+    }
+}
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <script>
+        // alert() Method Example
+        function showAlert() {
+            alert("Hello! This is an alert message.");
+        }
+
+        // prompt() Method Example
+        function showPrompt() {
+            let name = prompt("Please enter your name:");
+            if (name !== null && name !== "") {
+                alert("Hello, " + name + "!");
+            }
+        }
+
+        // confirm() Method Example
+        function showConfirm() {
+            let result = confirm("Do you want to proceed?");
+            if (result) {
+                alert("You clicked OK.");
+            } else {
+                alert("You clicked Cancel.");
+            }
+        }
+    </script>
+</body>
+
+</html>
