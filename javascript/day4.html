@@ -55,7 +55,7 @@
 <body>
 
     <div class="container">
-    <h1 style="text-align: center;" >Day 4 </h1>
+        <h1 style="text-align: center;">Day 4 </h1>
 
         <h1>Learn JavaScript Functions</h1>
 
@@ -124,6 +124,7 @@ function displayMessage() {
     </div>
 
     <script>
+
         // Normal Function
         function sayHello() {
             console.log("Hello, world!");
@@ -144,10 +145,13 @@ function displayMessage() {
             console.log("This is a callback function!");
         }
 
+        (
+            () => {
 
+            }
+        )();
 
         // =========================================================Function Parameters and Return Value ================================================= //
-
 
 
 
@@ -155,18 +159,20 @@ function displayMessage() {
         function addNumbers(a, b) {
             console.log(a + b);
         }
-
         // Function with Return Value
         function multiplyNumbers(a, b) {
             return a * b;
         }
-
         function showMultiplicationResult() {
             const result = multiplyNumbers(3, 4);
             console.log("Multiplication result: " + result);
         }
 
 
+        // IIFE (Immediately Invoked Function Expression)
+        (function () {
+            console.log("This is an IIFE running immediately after its definition!");
+        })();
 
 
     </script>
