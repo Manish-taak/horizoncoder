@@ -1,113 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Media Queries Example</title>
-    <style>
-        /* Default styles */
-      *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Media Queries (Modern Guide)</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+    body { background: #f5f7fa; color: #333; }
+
+    h1 {
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    section { padding: 30px; }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    .desc { color: #555; line-height: 1.6; margin-bottom: 15px; }
+
+    /* ================= LAYOUT ================= */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .item {
+      background: #3b82f6;
+      color: white;
+      padding: 30px;
+      text-align: center;
+      border-radius: 10px;
+      font-weight: 600;
+    }
+
+    /* ================= MEDIA QUERIES ================= */
+
+    /* Tablet (max-width: 900px) */
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
       }
-body{
-    padding: 0 20px;
-}
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
 
-        h1 {
-            color: darkblue;
-        }
+      body {
+        background: #e0f2fe;
+      }
+    }
 
-        p {
-            font-size: 16px;
-            line-height: 1.6;
-        }
+    /* Mobile (max-width: 600px) */
+    @media (max-width: 600px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
 
-        /* Media Query for screens with a minimum width of 600px */
-        @media screen and  (min-width: 600px) {
-            .container {
-                background-color: lightblue;
-            }
+      body {
+        background: #dcfce7;
+      }
+    }
 
-            h1 {
-                font-size: 2em;
-            }
+    /* Large Screens (min-width: 1200px) */
+    @media (min-width: 1200px) {
+      .grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
 
-            p {
-                font-size: 18px;
-            }
-        }
+      body {
+        background: #fef3c7;
+      }
+    }
 
-        /* Media Query for screens with a maximum width of 899px */
-        @media screen and (max-width: 899px) {
-            .container {
-                background-color: lightgreen;
-            }
+    /* Hover support */
+    .box {
+      width: 120px;
+      height: 120px;
+      background: #ef4444;
+      margin: 30px auto;
+      border-radius: 12px;
+      transition: 0.3s;
+    }
 
-            h1 {
-                font-size: 1.5em;
-            }
+    @media (hover: hover) {
+      .box:hover {
+        background: #22c55e;
+      }
+    }
 
-            p {
-                font-size: 16px;
-            }
-        }
+    @media (hover: none) {
+      .box {
+        background: #3b82f6;
+      }
+    }
 
-        /* Media Query for screens between 600px and 899px */
-        @media screen and (min-width: 600px) and (max-width: 899px) {
-            .container {
-                background-color: lightcoral;
-            }
-
-            h1 {
-                font-size: 1.8em;
-            }
-
-            p {
-                font-size: 17px;
-            }
-        }
-
-        .box {
-            width: 100px;
-            height: 100px;
-            background-color: blue;
-            transition: background-color 0.3s;
-        }
-
-        @media (hover: hover) {
-            .box:hover {
-                background-color: red;
-            }
-        }
-
-        /* Styles applied if the device does not support hover */
-        @media (hover: none) {
-            .box {
-                background-color: green; /* Change color for non-hover devices */
-            }
-        }
-        h1{
-            text-align: center;
-            font-size: 40px;
-        }
-    </style>
+  </style>
 </head>
+
 <body>
-    <h1>Media Queries</h1>
-    <div class="container">
-        <h1>Responsive Design Example</h1>
-        <p>This example demonstrates how CSS media queries work with min-width and max-width to create responsive designs. Resize the browser window to see the effects.</p>
+
+  <h1>Media Queries (Easy + Visual)</h1>
+
+  <section>
+    <div class="card">
+      <h2>📌 Media Query</h2>
+      <p class="desc">
+        <b>Definition:</b> Media Query CSS ka feature hai jo different screen sizes ke liye alag styles apply karta hai.
+        <br><br>
+        <b>Samajhne ka tarika:</b> Mobile, Tablet, Laptop ke liye alag design banana.
+      </p>
+
+      <p class="desc">
+        <b>max-width:</b> Screen choti hone par style apply hota hai (Mobile-first approach).
+        <br>
+        <b>min-width:</b> Screen badi hone par style apply hota hai.
+      </p>
+
+      <div class="grid">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+      </div>
+
+      <p class="desc">
+        👉 Resize screen karke dekho: Desktop → 4 columns, Tablet → 2 columns, Mobile → 1 column
+      </p>
     </div>
-    <div class="box"></div>
+  </section>
+
+  <section>
+    <div class="card">
+      <h2>📌 Hover Media Feature</h2>
+      <p class="desc">
+        <b>hover: hover</b> → Mouse devices (Laptop/Desktop)
+        <br>
+        <b>hover: none</b> → Touch devices (Mobile)
+      </p>
+
+      <div class="box"></div>
+
+      <p class="desc">
+        👉 Desktop par hover karo → color change hoga
+        <br>
+        👉 Mobile par hover nahi hota → default color dikhega
+      </p>
+    </div>
+  </section>
+
 </body>
+
 </html>

@@ -6,84 +6,306 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Display Grid</title>
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      width: 100%;
-      height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      padding: 30px;
     }
 
-
-
-
-
-    .grid-container {
-      display: grid;
-      grid-template-columns: auto;
-      /* set columns in grid*/
-      /* grid-template-columns: 1fr 1fr 1fr 1fr; */
-      grid-template-rows: auto;
-      /* set rows in grid*/
-      /* grid-template-rows: 1fr 1fr 1fr 1fr; */
-      /* grid-template-columns: repeat(2,1fr);
-        grid-template-rows: repeat(2,1fr); */
-      grid-template-areas:
-        /* using grid areas names as layout*/
-        "one one three two"
-        "one one three two"
-        "four four three two"
-        "four four three two";
-      height: 100%;
-      width: 100%;
-      column-gap: 20px;
-      /* set gap between every column*/
-      row-gap: 20px;
-      /*set gap between every row*/
-    }
-
-    .item1 {
-      grid-area: one;
-      /*providing names to grid area*/
-      background-color: red;
-    }
-
-    .item2 {
-      grid-area: two;
-      /*providing names to grid area*/
-      background-color: blue;
-    }
-
-    .item3 {
-      grid-area: three;
-      /*providing names to grid area*/
-      background-color: green;
-    }
-
-    .item4 {
-      grid-area: four;
-      /*providing names to grid area*/
-      background-color: orange;
-    }
-    h1{
+    h1 {
       text-align: center;
       font-size: 40px;
+      margin-bottom: 10px;
     }
+
+    /* ─── Section Headings ─────────────────────────────────── */
+    .section {
+      margin-bottom: 50px;
+    }
+
+    .section h2 {
+      font-size: 24px;
+      margin-bottom: 6px;
+      color: #222;
+      border-left: 5px solid #555;
+      padding-left: 10px;
+    }
+
+    .section p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 12px;
+      padding-left: 15px;
+    }
+
+    .section code {
+      background: #222;
+      color: #0f0;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+
+    /* ─── Shared item styles ───────────────────────────────── */
+    .grid-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 6px;
+      min-height: 80px;
+    }
+
+    /* ════════════════════════════════════════════════════════
+       SECTION 1 — grid-template-areas
+    ════════════════════════════════════════════════════════ */
+    .grid-areas {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      grid-template-areas:
+        "one   one   three two"
+        "one   one   three two"
+        "four  four  three two"
+        "four  four  three two";
+      height: 400px;
+      width: 100%;
+      column-gap: 10px;
+      row-gap: 10px;
+    }
+
+    .areas-item1 { grid-area: one;   background-color: #e74c3c; }
+    .areas-item2 { grid-area: two;   background-color: #3498db; }
+    .areas-item3 { grid-area: three; background-color: #2ecc71; }
+    .areas-item4 { grid-area: four;  background-color: #e67e22; }
+
+
+    /* ════════════════════════════════════════════════════════
+       SECTION 2 — grid-column & grid-row (line numbers)
+    ════════════════════════════════════════════════════════ */
+    /*
+      Column lines:  1 | 2 | 3 | 4 | 5
+      Row lines:     1 | 2 | 3 | 4 | 5
+    */
+    .grid-lines {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      height: 400px;
+      width: 100%;
+      column-gap: 10px;
+      row-gap: 10px;
+    }
+
+    /* Item 1 → columns 1–3, rows 1–3  (big box, top-left) */
+    .lines-item1 {
+      grid-column: 1 / 3;   /* start at column line 1, end at 3 */
+      grid-row:    1 / 3;   /* start at row line 1, end at 3    */
+      background-color: #e74c3c;
+    }
+
+    /* Item 2 → column 3 only, rows 1–3 (tall, middle) */
+    .lines-item2 {
+      grid-column: 3 / 4;
+      grid-row:    1 / 4;
+      background-color: #2ecc71;
+    }
+
+    /* Item 3 → column 4 only, all 4 rows (tall, right) */
+    .lines-item3 {
+      grid-column: 4 / 5;
+      grid-row:    1 / 5;
+      background-color: #3498db;
+    }
+
+    /* Item 4 → columns 1–2, rows 3–5 (bottom-left) */
+    .lines-item4 {
+      grid-column: 1 / 3;
+      grid-row:    3 / 5;
+      background-color: #e67e22;
+    }
+
+    /* Item 5 → column 3 only, row 4 (small, bottom-middle) */
+    .lines-item5 {
+      grid-column: 3 / 4;
+      grid-row:    4 / 5;
+      background-color: #9b59b6;
+    }
+
+
+    /* ════════════════════════════════════════════════════════
+       SECTION 3 — order property
+    ════════════════════════════════════════════════════════ */
+    /*
+      By default HTML order is: A B C D E
+      We use "order" to VISUALLY reorder them → E A D B C
+      Lower order value = appears first (default is 0)
+    */
+    .grid-order {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      width: 100%;
+    }
+
+    .order-item {
+      min-height: 100px;
+    }
+
+    .order-A { background-color: #e74c3c; order: 2;  } /* appears 2nd */
+    .order-B { background-color: #3498db; order: 4;  } /* appears 4th */
+    .order-C { background-color: #2ecc71; order: 5;  } /* appears 5th */
+    .order-D { background-color: #e67e22; order: 3;  } /* appears 3rd */
+    .order-E { background-color: #9b59b6; order: 1;  } /* appears 1st */
+
+    .order-label {
+      font-size: 12px;
+      opacity: 0.85;
+      margin-top: 4px;
+    }
+
+
+    /* ════════════════════════════════════════════════════════
+       SECTION 4 — justify-items & align-items (alignment)
+    ════════════════════════════════════════════════════════ */
+    .grid-align {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      width: 100%;
+      height: 220px;
+      /* items will be centered inside their cells */
+      justify-items: center;   /* horizontal alignment inside cell */
+      align-items:   center;   /* vertical alignment inside cell   */
+    }
+
+    .align-item {
+      width: 80px;
+      height: 60px;
+      border-radius: 6px;
+    }
+
+    .align-item:nth-child(1) { background: #e74c3c; }
+    .align-item:nth-child(2) { background: #3498db; }
+    .align-item:nth-child(3) { background: #2ecc71; }
+    .align-item:nth-child(4) { background: #e67e22; }
+    .align-item:nth-child(5) { background: #9b59b6; }
+    .align-item:nth-child(6) { background: #1abc9c; }
   </style>
 </head>
 
 <body>
 
-  <h1>Display Grid</h1>
+  <h1>Display Grid — Complete Guide</h1>
 
-  <div class="grid-container">
-    <div class="item1"></div>
-    <div class="item2"></div>
-    <div class="item3"></div>
-    <div class="item4"></div>
+  <!-- ══════════════════════════════════════════════
+       SECTION 1 : grid-template-areas
+  ══════════════════════════════════════════════ -->
+  <div class="section">
+    <h2>1. grid-template-areas</h2>
+    <p>
+      Har cell ko ek <code>naam</code> dete hain aur phir layout ko
+      <code>grid-template-areas</code> se text map ki tarah define karte hain.
+      Item ko <code>grid-area: naam</code> se assign karte hain.
+    </p>
+    <div class="grid-areas">
+      <div class="grid-item areas-item1">ONE</div>
+      <div class="grid-item areas-item2">TWO</div>
+      <div class="grid-item areas-item3">THREE</div>
+      <div class="grid-item areas-item4">FOUR</div>
+    </div>
   </div>
+
+
+  <!-- ══════════════════════════════════════════════
+       SECTION 2 : grid-column & grid-row (line numbers)
+  ══════════════════════════════════════════════ -->
+  <div class="section">
+    <h2>2. grid-column &amp; grid-row (Line Numbers)</h2>
+    <p>
+      Grid mein invisible <strong>lines</strong> hoti hain — columns ke liye 1,2,3…
+      aur rows ke liye bhi 1,2,3… . <code>grid-column: 1 / 3</code> matlab
+      "column line 1 se shuru ho, line 3 pe khatam ho" (yani 2 columns cover karo).
+      <code>grid-row: 1 / 3</code> bhi same tarah kaam karta hai rows ke liye.
+      Isse aap kisi bhi item ko kisi bhi jagah stretch kar sakte ho bina areas ka naam diye.
+    </p>
+    <div class="grid-lines">
+      <div class="grid-item lines-item1">col 1–3 / row 1–3</div>
+      <div class="grid-item lines-item2">col 3–4 / row 1–4</div>
+      <div class="grid-item lines-item3">col 4–5 / row 1–5</div>
+      <div class="grid-item lines-item4">col 1–3 / row 3–5</div>
+      <div class="grid-item lines-item5">col 3–4 / row 4–5</div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════
+       SECTION 3 : order property
+  ══════════════════════════════════════════════ -->
+  <div class="section">
+    <h2>3. order Property</h2>
+    <p>
+      HTML mein items ka order hai: <strong>A → B → C → D → E</strong>.<br>
+      Lekin <code>order</code> property lagane ke baad visual order ho jaata hai:
+      <strong>E → A → D → B → C</strong>.<br>
+      Default <code>order: 0</code> hota hai. Chhoti value = pehle dikhai deta hai.
+      Negative values bhi chalti hain.
+    </p>
+    <div class="grid-order">
+      <div class="grid-item order-item order-A">
+        A
+        <div class="order-label">HTML: 1st<br>order: 2</div>
+      </div>
+      <div class="grid-item order-item order-B">
+        B
+        <div class="order-label">HTML: 2nd<br>order: 4</div>
+      </div>
+      <div class="grid-item order-item order-C">
+        C
+        <div class="order-label">HTML: 3rd<br>order: 5</div>
+      </div>
+      <div class="grid-item order-item order-D">
+        D
+        <div class="order-label">HTML: 4th<br>order: 3</div>
+      </div>
+      <div class="grid-item order-item order-E">
+        E
+        <div class="order-label">HTML: 5th<br>order: 1</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════
+       SECTION 4 : justify-items & align-items
+  ══════════════════════════════════════════════ -->
+  <div class="section">
+    <h2>4. justify-items &amp; align-items (Alignment)</h2>
+    <p>
+      <code>justify-items: center</code> → har item apni cell ke andar
+      <strong>horizontally center</strong> ho jaata hai.<br>
+      <code>align-items: center</code> → har item apni cell ke andar
+      <strong>vertically center</strong> ho jaata hai.<br>
+      Dono milake item ko perfectly center karte hain. Values:
+      <code>start</code>, <code>end</code>, <code>center</code>, <code>stretch</code> (default).
+    </p>
+    <div class="grid-align">
+      <div class="align-item"></div>
+      <div class="align-item"></div>
+      <div class="align-item"></div>
+      <div class="align-item"></div>
+      <div class="align-item"></div>
+      <div class="align-item"></div>
+    </div>
+  </div>
+
 </body>
-
 </html>
-
-
-
-<!-- 
- -->

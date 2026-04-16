@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 3 html</title>
-    <style>
-        /* please ignore css */
+    <title>HTML Tables - Complete Guide</title>
 
+    <style>
         table {
             width: 80%;
             border-collapse: collapse;
@@ -17,7 +16,7 @@
         th,
         td {
             border: 1px solid #ddd;
-            padding: 8px;
+            padding: 10px;
             text-align: center;
         }
 
@@ -26,199 +25,199 @@
         }
 
         caption {
-            caption-side: top;
             font-weight: bold;
             margin-bottom: 10px;
         }
-
-        tfoot {
-            font-weight: bold;
-            background-color: #f9f9f9;
-        }
-
-        /* please ignore css */
     </style>
 </head>
 
 <body>
-    <h1 style="text-align: center;">Working with Tables in HTML</h1>
-    <h1 style="text-align: center;">Day 3</h1>
 
+    <h1 style="text-align:center;">HTML Tables - Complete Explanation</h1>
 
-    <!-- Creating a Table -->
-    <h2>Basic Table Structure</h2>
+    <!-- ================= BASIC TABLE ================= -->
+
+    <h2>1. Basic Table Structure</h2>
 
     <table>
-        <caption>Monthly Sales Report</caption> <!-- Table caption -->
+        <caption>Monthly Sales Report</caption>
+
         <colgroup>
-            <col span="1" style="background-color: #f2f2f2;"> <!-- First column styling -->
-            <col span="2"> <!-- Remaining columns -->
+            <col style="background-color: #e6e6e6;">
+            <col>
+            <col>
         </colgroup>
 
         <thead>
             <tr>
-                <th>Month</th> <!-- Header cell -->
-                <th>Product A Sales</th>
-                <th>Product B Sales</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <tr>
-                <td>January</td> <!-- Data cell -->
-                <td>150</td>
-                <td>200</td>
-            </tr>
-            <tr>
-                <td>February</td>
-                <td>180</td>
-                <td>210</td>
-            </tr>
-            <tr>
-                <td>March</td>
-                <td>160</td>
-                <td>250</td>
-            </tr>
-        </tbody>
-
-        <tfoot>
-            <tr>
-                <td>Total</td>
-                <td>490</td> <!-- Footer cell with total -->
-                <td>660</td>
-            </tr>
-        </tfoot>
-
-    </table>
-
-    <h2>Understanding Table Elements</h2>
-    <p>
-        The table above demonstrates the use of various HTML tags to create and format a table:
-    </p>
-    <ul>
-        <li><code>&lt;table&gt;</code>: Defines the table.</li>
-        <li><code>&lt;caption&gt;</code>: Adds a caption/title to the table.</li>
-        <li><code>&lt;colgroup&gt;</code> and <code>&lt;col&gt;</code>: Group and style table columns.</li>
-        <li><code>&lt;thead&gt;</code>: Groups the header content in the table.</li>
-        <li><code>&lt;tbody&gt;</code>: Groups the main body content in the table.</li>
-        <li><code>&lt;tfoot&gt;</code>: Groups the footer content in the table.</li>
-        <li><code>&lt;tr&gt;</code>: Defines a row in the table.</li>
-        <li><code>&lt;th&gt;</code>: Defines a header cell in the table.</li>
-        <li><code>&lt;td&gt;</code>: Defines a standard data cell in the table.</li>
-    </ul>
-</body>
-
-</html>
-
-
-
-
-<!-- 
-
-copy this code
- includeed rowspan and colspan   ex = _______________ 
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Tables Example with Colspan and Rowspan</title>
-    <style>
-        table {
-            width: 80%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: center;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        caption {
-            caption-side: top;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        tfoot {
-            font-weight: bold;
-            background-color: #f9f9f9;
-        }
-    </style>
-</head>
-<body>
-    <h1>Working with Tables in HTML</h1>
-
-    <h2>Table with Colspan and Rowspan</h2>
-    <table>
-        <caption>Monthly Sales Report with Merged Cells</caption> 
-        <colgroup>
-            <col span="1" style="background-color: #f2f2f2;">
-            <col span="3"> 
-        </colgroup>
-        <thead>
-            <tr>
-                <th rowspan="2">Month</th>
-                <th colspan="2">Product Sales</th>
-                <th rowspan="2">Total Sales</th>
-            </tr>
-            <tr>
+                <th>Month</th>
                 <th>Product A</th>
                 <th>Product B</th>
             </tr>
         </thead>
+
         <tbody>
             <tr>
-                <td>January</td> 
+                <td>January</td>
                 <td>150</td>
                 <td>200</td>
-                <td>350</td> 
             </tr>
             <tr>
                 <td>February</td>
                 <td>180</td>
                 <td>210</td>
-                <td>390</td>
-            </tr>
-            <tr>
-                <td>March</td>
-                <td>160</td>
-                <td>250</td>
-                <td>410</td> 
             </tr>
         </tbody>
+
         <tfoot>
             <tr>
                 <td>Total</td>
-                <td colspan="2">890</td> 
-                <td>1150</td> 
+                <td>330</td>
+                <td>410</td>
             </tr>
         </tfoot>
     </table>
 
-    <h2>Understanding Table Elements with Colspan and Rowspan</h2>
-    <p>
-        The table above demonstrates the use of <code>colspan</code> and <code>rowspan</code> attributes:
-    </p>
+    <!-- ================= TAGS ================= -->
+
+    <h2>2. Important Tags</h2>
     <ul>
-        <li><code>colspan="2"</code>: Merges two columns into one. Used for the "Product Sales" header and the "Total" footer cell.</li>
-        <li><code>rowspan="2"</code>: Merges two rows into one. Used for the "Month" header cell.</li>
+        <li><b>&lt;table&gt;</b> → table container</li>
+        <li><b>&lt;tr&gt;</b> → row</li>
+        <li><b>&lt;td&gt;</b> → data cell</li>
+        <li><b>&lt;th&gt;</b> → heading cell</li>
+        <li><b>&lt;caption&gt;</b> → title</li>
+        <li><b>&lt;colgroup&gt;</b> → column styling</li>
     </ul>
+
+    <!-- ================= COLGROUP ================= -->
+
+    <h2>3. colgroup</h2>
+    <p>
+        colgroup ka use columns ko ek group mein style karne ke liye hota hai.
+    </p>
+
+    <!-- ================= ROWSPAN & COLSPAN ================= -->
+
+    <h2>4. Rowspan and Colspan</h2>
+
+    <table>
+        <tr>
+            <th rowspan="2">Gender</th>
+            <th colspan="2">Average</th>
+            <th rowspan="2">Red Eyes</th>
+        </tr>
+
+        <tr>
+            <td>Height</td>
+            <td>Weight</td>
+        </tr>
+
+        <tr>
+            <td>Male</td>
+            <td>1.9</td>
+            <td>0.003</td>
+            <td>40%</td>
+        </tr>
+
+        <tr>
+            <td>Female</td>
+            <td>1.7</td>
+            <td>0.002</td>
+            <td>43%</td>
+        </tr>
+    </table>
+
+    <!-- ================= DEEP EXPLANATION ================= -->
+
+    <h2>5. Deep Explanation (VERY IMPORTANT)</h2>
+
+    <h3>🔹 colspan kya karta hai?</h3>
+    <p>
+        colspan ek cell ko multiple columns ka space deta hai (horizontal merge).
+    </p>
+
+    <pre>
+Normal:
+| A | B | C |
+
+colspan="2":
+|   A   | C |
+    </pre>
+
+    <p>
+        👉 A ne 2 columns le liye, isliye ek column kam ho gaya.
+    </p>
+
+    <h3>🔹 rowspan kya karta hai?</h3>
+    <p>
+        rowspan ek cell ko multiple rows ka space deta hai (vertical merge).
+    </p>
+
+    <pre>
+Normal:
+| A | B |
+| C | D |
+
+rowspan="2":
+| A | B |
+|   | D |
+    </pre>
+
+    <p>
+        👉 A neeche wali row ka bhi space le raha hai.
+    </p>
+
+    <!-- ================= EFFECT ================= -->
+
+    <h2>6. Effect on Rows & Columns</h2>
+
+    <ul>
+        <li>colspan → us row mein columns kam ho jate hain</li>
+        <li>rowspan → next row mein cells kam likhne padte hain</li>
+        <li>table ka balance maintain karna zaroori hai</li>
+    </ul>
+
+    <!-- ================= GOLDEN RULE ================= -->
+
+    <h2>7. Golden Rule</h2>
+
+    <p>
+        ✔ Har row ka total columns same hona chahiye (after merging)
+    </p>
+
+    <!-- ================= COMMON MISTAKE ================= -->
+
+    <h2>8. Common Mistake</h2>
+
+    <pre>
+❌ Galat:
+
+<tr>
+  <td rowspan="2">A</td>
+  <td>B</td>
+</tr>
+
+<tr>
+  <td>C</td>
+  <td>D</td>  ❌ extra cell
+</tr>
+    </pre>
+
+    <p>
+        👉 Yaha error aayega kyunki upar wala cell already space le raha hai.
+    </p>
+
+    <!-- ================= SUMMARY ================= -->
+
+    <h2>9. Summary</h2>
+
+    <ul>
+        <li>colspan → horizontal merge</li>
+        <li>rowspan → vertical merge</li>
+        <li>grid balance maintain karna zaroori hai</li>
+    </ul>
+
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
--->

@@ -1,70 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Hover Effects</title>
-    <style>
-        /* Basic styles for the container */
-        .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; /* Full viewport height */
-            background-color: #f0f0f0; /* Light grey background */
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hover Effects (Basics → Mid Level)</title>
 
-        /* Basic styles for the button */
-        .button {
-            display: inline-block;
-            padding: 15px 30px;
-            font-size: 16px;
-            color: white;
-            background-color: #007bff; /* Blue background */
-            text-align: center;
-            text-decoration: none;
-            border-radius: 5px; /* Rounded corners */
-            transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
-            cursor: pointer; /* Change cursor to pointer */
-        }
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-        /* Hover effect for the button */
-        .button:hover {
-            background-color: #0056b3; /* Darker blue background on hover */
-            transform: scale(1.05); /* Slightly enlarge button */
-        }
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
 
-        /* Hover effect for the button with focus */
-        .button:focus {
-            outline: none; /* Remove default focus outline */
-            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Add a blue outline */
-        }
+    body { background: #f5f7fa; color: #333; }
 
+    h1 {
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      margin-bottom: 20px;
+    }
 
-        @font-face {
-            font-family: 'CustomFont';
-            src: url('fonts/custom-font.woff2') format('woff2'),
-                 url('fonts/custom-font.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-        }
+    section { padding: 30px; }
 
-        /* Apply the custom font to elements */
-        h1 {
-            font-family: 'CustomFont', sans-serif;
-            text-align: center;
-font-size: 40px;
-        }
-        
-    </style>
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      margin-bottom: 25px;
+    }
+
+    .desc { color: #555; line-height: 1.6; margin-bottom: 15px; }
+
+    /* ================= BASIC BUTTON ================= */
+    .btn {
+      padding: 12px 25px;
+      background: #3b82f6;
+      color: white;
+      border-radius: 8px;
+      display: inline-block;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: #1d4ed8;
+      transform: scale(1.05);
+    }
+
+    /* ================= SHADOW HOVER ================= */
+    .shadow-box {
+      width: 200px;
+      height: 120px;
+      background: white;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .shadow-box:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    /* ================= IMAGE HOVER ================= */
+    .img-card {
+      width: 250px;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .img-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      transition: 0.4s;
+    }
+
+    .img-card:hover img {
+      transform: scale(1.2);
+    }
+
+    /* ================= OVERLAY EFFECT ================= */
+    .overlay-card {
+      position: relative;
+      width: 250px;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .overlay-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: 0.3s;
+    }
+
+    .overlay-card:hover .overlay {
+      opacity: 1;
+    }
+
+    /* ================= GRID ================= */
+    .grid {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      justify-content: center;
+    }
+
+  </style>
 </head>
+
 <body>
-    <h1>Hover Effect & Fontface</h1>
-    <div class="container">
-        <!-- Button element with hover effect -->
-        <a href="#" class="button">Hover over me!</a>
+
+  <h1>Hover Effects (Easy → Advanced)</h1>
+
+  <!-- BASIC -->
+  <section>
+    <div class="card">
+      <h2>📌 Basic Hover</h2>
+      <p class="desc">
+        <b>Definition:</b> <code>:hover</code> tab apply hota hai jab user mouse element par le jata hai.
+        <br><br>
+        <b>Use:</b> Buttons, links, UI feedback
+      </p>
+
+      <a class="btn">Hover Me</a>
     </div>
+  </section>
+
+  <!-- SHADOW -->
+  <section>
+    <div class="card">
+      <h2>📌 Card Lift Effect</h2>
+      <p class="desc">
+        <b>Concept:</b> Hover par element upar uthta hai (translateY) + shadow increase hota hai.
+      </p>
+
+      <div class="grid">
+        <div class="shadow-box">Hover Card</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMAGE ZOOM -->
+  <section>
+    <div class="card">
+      <h2>📌 Image Zoom</h2>
+      <p class="desc">
+        <b>Concept:</b> Image hover par zoom hoti hai (scale transform)
+      </p>
+
+      <div class="grid">
+        <div class="img-card">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERLAY -->
+  <section>
+    <div class="card">
+      <h2>📌 Overlay Hover</h2>
+      <p class="desc">
+        <b>Concept:</b> Hover par content show hota hai (opacity + position)
+      </p>
+
+      <div class="grid">
+        <div class="overlay-card">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600" />
+          <div class="overlay">Hello 👋</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 </body>
+
 </html>

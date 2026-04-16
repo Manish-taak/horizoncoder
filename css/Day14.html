@@ -1,96 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSS calc() Example (Css Functions)</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS calc() & Filters (Modern Guide)</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
   <style>
-    /* The container takes 100% of the browser's width */
-    .container {
-      width: 100%; 
-      background-color: lightgray;
-      padding: 20px;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
 
-    /* The box width is calculated to take 50% of the container width minus 30px */
-    .box {
-      width: calc(50% - 30px); 
-      background-color: lightblue;
-      padding: 20px;
-      margin: 0 auto; /* Centers the box inside the container */
-    }
+    body { background: #f5f7fa; color: #333; }
 
-    /* Sets a minimum height for the box */
-    .box p {
-      min-height: calc(100px + 10%); /* Adds 10% of the viewport height to 100px */
-    }
-
-    body {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #f0f0f0;
-      overflow-x: hidden;
-    }
-
-    .filter-example {
-      width: 300px;
-      height: 200px;
+    h1 {
       text-align: center;
-      line-height: 200px;
-      color: #fff;
-      font-size: 24px;
-      font-family: Arial, sans-serif;
-      margin: 20px;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      margin-bottom: 20px;
     }
 
-    /* No filter applied */
-    .none {
-      background-color: #3498db;
+    section { padding: 40px; }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
     }
 
-    /* Gaussian blur applied */
-    .blur {
-      background-color: #e74c3c;
-      filter: blur(10px); /* Applies a 10px Gaussian blur */
+    .desc { color: #555; line-height: 1.6; margin-bottom: 15px; }
+
+    /* ================= CALC ================= */
+    .container {
+      width: 100%;
+      background: #eef2ff;
+      padding: 20px;
+      border-radius: 12px;
     }
 
-    /* Drop shadow applied */
-    .drop-shadow {
-      background-color: #2ecc71;
-      filter: drop-shadow(10px 10px 15px rgba(0, 0, 0, 0.5)); 
-      /* Syntax : filter: drop-shadow(h-shadow v-shadow blur spread color);  */
+    .box {
+      width: calc(50% - 20px);
+      background: #3b82f6;
+      color: white;
+      padding: 20px;
+      margin: auto;
+      border-radius: 12px;
+      text-align: center;
     }
-    h1{
-        text-align: center;
-        font-size: 40px;
+
+    /* ================= FILTERS ================= */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
     }
+
+    .filter-card {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      background: #fff;
+      text-align: center;
+    }
+
+    .filter-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .filter-card p { padding: 10px; font-size: 14px; }
+
+    .blur img { filter: blur(5px); }
+    .brightness img { filter: brightness(150%); }
+    .grayscale img { filter: grayscale(100%); }
+    .shadow img { filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.5)); }
+
+    code { background: #eee; padding: 2px 6px; border-radius: 6px; }
   </style>
 </head>
+
 <body>
-<h1>Css Function & Blur-Filter & Drop-Shadow </h1>
-  <div class="container">
-    <!-- This is the box that will adjust its size based on the calc() function -->
-    <div class="box">
-      <p>This box is using the CSS calc() function to adjust its width and height.</p>
+
+  <h1>CSS calc() & Filters (Easy + Visual)</h1>
+
+  <!-- CALC -->
+  <section>
+    <div class="card">
+      <h2>📌 calc()</h2>
+      <p class="desc">
+        <b>Definition:</b> <code>calc()</code> ek CSS function hai jo tumhe dynamic calculations karne deta hai (px, %, vh mix karke).
+        <br><br>
+        <b>Samajhne ka tarika:</b> Layout ko flexible banana — jaise "50% width minus spacing".
+        <br><br>
+        <b>Example:</b> <code>width: calc(50% - 20px)</code>
+      </p>
+
+      <div class="container">
+        <div class="box">Responsive Box (50% - 20px)</div>
+      </div>
     </div>
-  </div>
+  </section>
 
+  <!-- FILTERS -->
+  <section>
+    <div class="card">
+      <h2>📌 CSS Filters</h2>
+      <p class="desc">
+        <b>Definition:</b> CSS <code>filter</code> images ya elements par visual effects apply karta hai.
+        <br><br>
+        <b>Samajhne ka tarika:</b> Instagram filters jaisa effect directly CSS se.
+      </p>
 
-  <div class="filter-example none">
-    No Filter
-  </div>
+      <div class="grid">
 
-  <div class="filter-example blur">
-    Blur Filter
-  </div>
+        <div class="filter-card">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600" />
+          <p><b>Normal</b></p>
+        </div>
 
-  <div class="filter-example drop-shadow">
-    Drop Shadow
-  </div>
+        <div class="filter-card blur">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600" />
+          <p><b>blur</b> → image blur ho jati hai</p>
+        </div>
+
+        <div class="filter-card brightness">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600" />
+          <p><b>brightness</b> → image bright ho jati hai</p>
+        </div>
+
+        <div class="filter-card grayscale">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600" />
+          <p><b>grayscale</b> → black & white</p>
+        </div>
+
+        <div class="filter-card shadow">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600" />
+          <p><b>drop-shadow</b> → shadow effect</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
 </body>
+
 </html>

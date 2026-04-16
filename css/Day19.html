@@ -1,54 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Animation Example</title>
-    <style>
-        /* Define the keyframes for the animation */
-        @keyframes slide-fade {
-            from {
-                transform: translateX(0); /* Start position */
-                opacity: 1;               /* Start opacity */
-            }
-            to {
-                transform: translateX(200px); /* End position */
-                opacity: 0;                  /* End opacity */
-            }
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Animations (Basics → Advanced)</title>
 
-        /* Style for the animated element using shorthand */
-        .animated-box-shorthand {
-            width: 100px;
-            height: 100px;
-            background-color: coral;
-            position: relative;
-            animation: slide-fade 2s ease-in-out 1s  infinite alternate forwards ; /* Apply the animation with shorthand  syntax : animation-name duration timing function delay  iteration-count  direction fill-mode play-state */
-        }
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-        /* Style for the animated element using individual properties */
-        .animated-box-individual {
-            width: 100px;
-            height: 100px;
-            background-color: lightblue;
-            position: relative;
-            animation-name: slide-fade; /* Specify the animation name */
-            animation-duration: 2s;    /* Specify the duration */
-            animation-timing-function: ease-in-out; /* Specify the timing function  example : linear ease ease-in ease-out ease-in-out		*/
-            animation-iteration-count: infinite; /* Specify the number of iterations */
-            animation-direction: alternate; /* set animation direction example : alternate alternate-reverse reverse*/
-            animation-fill-mode: forwards; /* set property of keyframe example forward set last keyframs property  backward set first keyframe property */
-            animation-play-state: running; /* define animation state running or pause*/
-        }
-        h1{
-            text-align: center;
-            font-size: 40px;
-        }
-    </style>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+    body { background: #f5f7fa; color: #333; }
+
+    h1 {
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    section { padding: 30px; }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .desc { color: #555; line-height: 1.6; margin-bottom: 15px; }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      border-radius: 12px;
+      margin: 20px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+    }
+
+    /* ================= MOVE ================= */
+    @keyframes move {
+      from { transform: translateX(0); }
+      to { transform: translateX(200px); }
+    }
+
+    .move {
+      background: #3b82f6;
+      animation: move 2s infinite alternate;
+    }
+
+    /* ================= FADE ================= */
+    @keyframes fade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .fade {
+      background: #10b981;
+      animation: fade 2s infinite alternate;
+    }
+
+    /* ================= SCALE ================= */
+    @keyframes scaleAnim {
+      from { transform: scale(1); }
+      to { transform: scale(1.5); }
+    }
+
+    .scale {
+      background: #f59e0b;
+      animation: scaleAnim 1.5s infinite alternate;
+    }
+
+    /* ================= ROTATE ================= */
+    @keyframes rotateAnim {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .rotate {
+      background: #ef4444;
+      animation: rotateAnim 2s linear infinite;
+    }
+
+    /* ================= BOUNCE ================= */
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-40px); }
+    }
+
+    .bounce {
+      background: #8b5cf6;
+      animation: bounce 1s infinite;
+    }
+
+  </style>
 </head>
+
 <body>
-    <h1>Animations</h1>
-    <div class="animated-box-shorthand"></div> <!-- Element with shorthand animation -->
-    <div class="animated-box-individual"></div> <!-- Element with individual properties animation -->
+
+  <h1>CSS Animations (Step-by-Step)</h1>
+
+  <!-- INTRO -->
+  <section>
+    <div class="card">
+      <h2>📌 Animation Basics</h2>
+      <p class="desc">
+        <b>Definition:</b> CSS animation se element time ke saath change hota hai (move, fade, rotate).
+        <br><br>
+        <b>2 Cheezein:</b>
+        <br>1. <code>@keyframes</code> → kya change hoga
+        <br>2. <code>animation</code> → kaise chalega
+      </p>
+    </div>
+  </section>
+
+  <!-- MOVE -->
+  <section>
+    <div class="card">
+      <h2>📌 Move Animation</h2>
+      <p class="desc">Element left se right move karta hai (translateX)</p>
+      <div class="box move">Move</div>
+    </div>
+  </section>
+
+  <!-- FADE -->
+  <section>
+    <div class="card">
+      <h2>📌 Fade Animation</h2>
+      <p class="desc">Element invisible se visible hota hai (opacity)</p>
+      <div class="box fade">Fade</div>
+    </div>
+  </section>
+
+  <!-- SCALE -->
+  <section>
+    <div class="card">
+      <h2>📌 Scale Animation</h2>
+      <p class="desc">Element bada chhota hota hai (scale)</p>
+      <div class="box scale">Scale</div>
+    </div>
+  </section>
+
+  <!-- ROTATE -->
+  <section>
+    <div class="card">
+      <h2>📌 Rotate Animation</h2>
+      <p class="desc">Element ghoomta hai (rotate)</p>
+      <div class="box rotate">Rotate</div>
+    </div>
+  </section>
+
+  <!-- BOUNCE -->
+  <section>
+    <div class="card">
+      <h2>📌 Bounce Animation</h2>
+      <p class="desc">Element upar niche jump karta hai</p>
+      <div class="box bounce">Bounce</div>
+    </div>
+  </section>
+
 </body>
+
 </html>

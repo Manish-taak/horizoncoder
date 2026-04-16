@@ -4,94 +4,158 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CSS Positions</title>
+  <title>CSS Positions (Modern UI)</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f5f7fa;
+      color: #333;
+    }
+
     h1 {
       text-align: center;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
     }
 
-    .relcontainer {
-      height: 100vh;
+    section {
+      min-height: 100vh;
+      padding: 40px;
+      border-bottom: 1px solid #ddd;
     }
 
-    .relative {
-      width: 250px;
-      height: 250px;
-      background-color: orange;
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .box {
+      width: 200px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      border-radius: 12px;
+    }
+
+    /* Relative */
+    .relative-container {
       position: relative;
-      left: 50px;
-      top: 50px;
+      height: 300px;
+      background: #eef2ff;
     }
 
-    .abscontainer {
+    .relative-box {
       position: relative;
-      height: 100vh;
+      top: 30px;
+      left: 40px;
+      background: #f59e0b;
     }
 
-    .absolute {
+    /* Absolute */
+    .absolute-container {
+      position: relative;
+      height: 300px;
+      background: #ecfdf5;
+    }
+
+    .absolute-box {
       position: absolute;
-      top: 100px;
-      left: 40%;
-      width: 250px;
-      height: 250px;
-      background-color: green;
-    }
-
-    .fixed {
-      position: fixed;
+      top: 50px;
       right: 50px;
-      bottom: 50px;
-      background-color: blue;
-      height: 250px;
-      width: 250px;
+      background: #10b981;
     }
 
-    .section1 {
-      height: 100vh;
-    }
-
-    .sticky {
-      width: 250px;
-      height: 250px;
-      background-color: palevioletred;
+    /* Sticky */
+    .sticky-box {
       position: sticky;
       top: 0;
+      background: #ec4899;
     }
 
-    .section {
-      height: 100vh;
-      background-color: lightblue;
+    /* Fixed */
+    .fixed-box {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #3b82f6;
+    }
+
+    .spacer {
+      height: 800px;
+    }
+
+    .desc {
+      margin-bottom: 15px;
+      color: #555;
+      line-height: 1.6;
+      font-size: 14px;
     }
   </style>
 </head>
 
 <body>
-  <h1>Lesson : Positions</h1>
-  <div class="relcontainer">
-    <h2>position: Relative (An element with position: relative; is positioned relative to its normal position.)</h2>
-    <div class="relative">relative</div>
-  </div>
 
-  <div class="abscontainer">
-    <h2>position : absolute (An element with position: absolute; is positioned relative to the nearest positioned
-      ancestor (instead of positioned relative to the viewport, like fixed).
-      However; if an absolute positioned element has no positioned ancestors, it uses the document body, and moves along
-      with page scrolling.)</h2>
-    <div class="absolute">absolute</div>
-  </div>
+  <h1>CSS Positions (Modern & Easy)</h1>
 
-  <div class="section1 section">
-    <h2>sticky : (An element with position: sticky; is positioned based on the user's scroll position)</h2>
-    <div class="sticky">sticky </div>
-  </div>
-  <div class="section1"></div>
-  <div class="section1"></div>
-  <div>
-    <h2>position : fixed (An element with position: fixed; is positioned relative to the viewport, which means it always
-      stays in the same place even if the page is scrolled. The top, right, bottom, and left properties are used to
-      position the element)</h2>
-    <div class="fixed">fixed</div>
-  </div>
+  <!-- RELATIVE -->
+  <section>
+    <div class="card">
+      <h2>📌 position: relative</h2>
+      <p class="desc"><b>Definition:</b> position: relative ka matlab hai element apni original (default) jagah par hi rehta hai, lekin tum usko <code>top, left, right, bottom</code> se thoda move kar sakte ho.<br><br><b>Samajhne ka tarika:</b> Element apni jagah reserve karke rakhta hai, bas visually shift hota hai.</p>
+      <div class="relative-container">
+        <div class="box relative-box">Relative</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABSOLUTE -->
+  <section>
+    <div class="card">
+      <h2>📌 position: absolute</h2>
+      <p class="desc"><b>Definition:</b> position: absolute element apni jagah chhod deta hai aur nearest positioned parent (jiska position relative/absolute/fixed ho) ke according place hota hai.<br><br><b>Samajhne ka tarika:</b> Agar parent par position: relative laga hai to child uske andar move karega, warna body ke according.</p>
+      <div class="absolute-container">
+        <div class="box absolute-box">Absolute</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STICKY -->
+  <section>
+    <div class="card">
+      <h2>📌 position: sticky</h2>
+      <p class="desc"><b>Definition:</b> position: sticky ek hybrid hai relative aur fixed ka. Jab tak scroll normal hai tab tak relative jaisa behave karta hai, aur ek point (top: 0) par pahunchte hi fixed ho jata hai.<br><br><b>Samajhne ka tarika:</b> Scroll karte waqt element upar chipak jata hai.</p>
+      <div class="box sticky-box">Sticky</div>
+      <div class="spacer"></div>
+    </div>
+  </section>
+
+  <!-- FIXED -->
+  <section>
+    <div class="card">
+      <h2>📌 position: fixed</h2>
+      <p class="desc"><b>Definition:</b> position: fixed element viewport (screen) ke according fix ho jata hai aur scroll hone par bhi apni jagah nahi badalta.<br><br><b>Samajhne ka tarika:</b> Jaise WhatsApp chat button ya floating help button hamesha screen par dikhta hai.</p>
+    </div>
+  </section>
+
+  <div class="box fixed-box">Fixed</div>
+
 </body>
 
 </html>

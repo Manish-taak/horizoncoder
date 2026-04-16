@@ -1,86 +1,660 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>display grid</title>
-    <style>
-        body {
-            width: 100%;
-            height: 100vh;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CSS Flexbox — Interactive Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:       #0d0d0d;
+      --surface:  #161616;
+      --border:   #2a2a2a;
+      --accent:   #f0c040;
+      --accent2:  #4fffb0;
+      --text:     #e8e8e8;
+      --muted:    #777;
+      --code-bg:  #1e1e1e;
+      --item1: #e74c3c;
+      --item2: #3498db;
+      --item3: #2ecc71;
+      --item4: #e67e22;
+      --item5: #9b59b6;
+    }
 
-        .flex-container {
-            display: flex;
-            justify-content: space-around;
-            /*flex-start flex-end center space-between space-evenly space-around*/
-            /*it align content horizontally*/
-            align-items: center;
-            /*stretch start end flex-start	flex-end center	*/
-            /*it align content vertically*/
-            flex-direction: row;
-            /*row column row-reverse column-reverse*/
-            align-content: center;
-            /* space-evenly	 space-around	 space-between	 flex-end	flex-start	center	stretch*/
-            align-self: center;
-            /*flex-end	flex-start	center stretch	auto*/
-            flex-wrap: wrap;
-            /* wrap no-wrap wrap-reverse*/
-            row-gap: 20px;
-            column-gap: 20px;
-            /* flex-flow: row wrap; it is a shorthand property for flex-direction:  and flex-wrap; */
-        }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        .item1 {
-            background-color: red;
-            width: 300px;
-            height: 300px;
-        }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Syne', sans-serif;
+      padding: 40px 24px 80px;
+      min-height: 100vh;
+    }
 
-        .item2 {
-            background-color: green;
-            width: 300px;
-            height: 300px;
-        }
+    /* ── PAGE HEADER ── */
+    .page-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .page-header h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: var(--accent);
+    }
+    .page-header p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .toc {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .toc a {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--accent2);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      text-decoration: none;
+      font-family: 'JetBrains Mono', monospace;
+      transition: background .2s;
+    }
+    .toc a:hover { background: #222; }
 
-        .item3 {
-            background-color: purple;
-            width: 300px;
-            height: 300px;
-        }
+    /* ── SECTION WRAPPER ── */
+    .section {
+      max-width: 860px;
+      margin: 0 auto 70px;
+    }
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .section h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .section .desc {
+      font-size: 14px;
+      color: #aaa;
+      margin-bottom: 18px;
+      line-height: 1.7;
+      border-left: 3px solid var(--border);
+      padding-left: 14px;
+    }
+    .section .desc strong { color: var(--accent2); }
 
-        .item4 {
-            background-color: yellow;
-            width: 300px;
-            height: 300px;
-        }
-    </style>
+    /* ── BUTTON STRIP ── */
+    .btn-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .btn-strip button {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      color: #ccc;
+      padding: 7px 14px;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .btn-strip button:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-strip button.active {
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* ── LIVE CODE DISPLAY ── */
+    .live-code {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      margin-bottom: 14px;
+      color: #aaa;
+    }
+    .live-code span { color: var(--accent2); font-weight: 700; }
+
+    /* ── DEMO BOX ── */
+    .demo-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      min-height: 160px;
+      position: relative;
+    }
+    .demo-flex {
+      display: flex;
+      min-height: 120px;
+      transition: all .3s ease;
+    }
+
+    /* Flex items */
+    .fi {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+      border-radius: 8px;
+      color: #fff;
+      transition: all .3s ease;
+      flex-shrink: 0;
+    }
+    .fi.sized { width: 70px; height: 70px; }
+    .fi.grow  { height: 70px; flex: 1; }
+    .fi:nth-child(1) { background: var(--item1); }
+    .fi:nth-child(2) { background: var(--item2); }
+    .fi:nth-child(3) { background: var(--item3); }
+    .fi:nth-child(4) { background: var(--item4); }
+    .fi:nth-child(5) { background: var(--item5); }
+
+    /* ── DIVIDER ── */
+    hr.divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0 auto 60px;
+      max-width: 860px;
+    }
+
+    /* ── align-self special demo ── */
+    .self-demo .fi { height: 70px; width: 70px; }
+    .self-demo .fi.tall { height: 110px; }
+    .self-demo .fi:nth-child(1) { align-self: flex-start; }
+    .self-demo .fi:nth-child(2) { align-self: center; }
+    .self-demo .fi:nth-child(3) { align-self: flex-end; }
+    .self-demo .fi:nth-child(4) { align-self: stretch; height: auto; }
+
+    /* ── flex-grow demo ── */
+    .grow-demo .fi:nth-child(1) { flex-grow: 1; }
+    .grow-demo .fi:nth-child(2) { flex-grow: 2; }
+    .grow-demo .fi:nth-child(3) { flex-grow: 1; }
+
+    /* ── order demo ── */
+    .order-demo { flex-wrap: wrap; gap: 10px; }
+    .order-demo .fi { width: 80px; height: 80px; flex-direction: column; gap: 4px; }
+    .order-demo .fi small { font-size: 10px; opacity: .75; font-weight: 400; }
+
+    /* ── cheatsheet ── */
+    .cheatsheet {
+      max-width: 860px;
+      margin: 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 30px;
+    }
+    .cheatsheet h2 { font-size: 1.4rem; color: var(--accent); margin-bottom: 20px; }
+    .cheat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .cheat-card {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .cheat-card .prop {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--accent2);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    .cheat-card ul { list-style: none; }
+    .cheat-card ul li {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #888;
+      padding: 3px 0;
+      border-bottom: 1px solid #222;
+    }
+    .cheat-card ul li:last-child { border: none; }
+    .cheat-card ul li .default { color: var(--accent); font-size: 10px; }
+  </style>
 </head>
-
 <body>
-    <h1>Display Property CSS</h1>
-    <ul>
-        <li>flex</li>
-        <li>grid</li>
-        <li>block</li>
-        <li>inline-block</li>
-        <li>inline</li>
-        <li>none</li>
-    </ul>
-    <h2>
-        lesson 1 : display flex </h2>
-    <p>The Flexible Box Layout Module, makes it easier to design flexible responsive layout structure without using
-        float or positioning.</p>
 
-    <!-- Flex container that will hold the flex items -->
-    <div class="flex-container">
-        <!-- Flex items -->
-        <div class="item1">1</div>
-        <div class="item2">2</div>
-        <div class="item3">3</div>
-        <div class="item4">4</div>
+<!-- ─────────────── PAGE HEADER ─────────────── -->
+<header class="page-header">
+  <h1>CSS Flexbox</h1>
+  <p>Har property ek interactive demo ke saath — button dabao aur live dekho 👇</p>
+  <nav class="toc">
+    <a href="#s1">flex-direction</a>
+    <a href="#s2">justify-content</a>
+    <a href="#s3">align-items</a>
+    <a href="#s4">flex-wrap</a>
+    <a href="#s5">align-content</a>
+    <a href="#s6">align-self</a>
+    <a href="#s7">flex-grow</a>
+    <a href="#s8">order</a>
+    <a href="#cheat">Cheatsheet</a>
+  </nav>
+</header>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 1 — flex-direction
+════════════════════════════════════════════ -->
+<section class="section" id="s1">
+  <p class="section-label">Section 01</p>
+  <h2>flex-direction</h2>
+  <p class="desc">
+    Items kaunsi <strong>direction</strong> mein arrange honge?
+    <br><code>row</code> = left to right (default) &nbsp;|&nbsp;
+    <code>column</code> = upar se neeche &nbsp;|&nbsp;
+    <code>row-reverse</code> / <code>column-reverse</code> = ulta order.
+  </p>
+  <div class="btn-strip" id="dir-btns">
+    <button class="active" onclick="setDir('row',this)">row</button>
+    <button onclick="setDir('column',this)">column</button>
+    <button onclick="setDir('row-reverse',this)">row-reverse</button>
+    <button onclick="setDir('column-reverse',this)">column-reverse</button>
+  </div>
+  <div class="live-code">flex-direction: <span id="dir-code">row</span>;</div>
+  <div class="demo-box">
+    <div class="demo-flex" id="dir-demo" style="flex-direction:row; gap:10px;">
+      <div class="fi sized">1</div>
+      <div class="fi sized">2</div>
+      <div class="fi sized">3</div>
     </div>
-</body>
+  </div>
+</section><hr class="divider"/>
 
+
+<!-- ═══════════════════════════════════════════
+     SECTION 2 — justify-content
+════════════════════════════════════════════ -->
+<section class="section" id="s2">
+  <p class="section-label">Section 02</p>
+  <h2>justify-content</h2>
+  <p class="desc">
+    Items ko <strong>main axis</strong> (horizontal, jab direction=row) pe kaise distribute karein?
+    <br>Sochho jaise ek line mein log kaise khade honge.
+  </p>
+  <div class="btn-strip" id="jc-btns">
+    <button class="active" onclick="setJC('flex-start',this)">flex-start</button>
+    <button onclick="setJC('center',this)">center</button>
+    <button onclick="setJC('flex-end',this)">flex-end</button>
+    <button onclick="setJC('space-between',this)">space-between</button>
+    <button onclick="setJC('space-around',this)">space-around</button>
+    <button onclick="setJC('space-evenly',this)">space-evenly</button>
+  </div>
+  <div class="live-code">justify-content: <span id="jc-code">flex-start</span>;</div>
+  <div class="demo-box">
+    <div class="demo-flex" id="jc-demo" style="justify-content:flex-start; align-items:center; gap:0;">
+      <div class="fi sized">1</div>
+      <div class="fi sized">2</div>
+      <div class="fi sized">3</div>
+    </div>
+  </div>
+</section><hr class="divider"/>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 3 — align-items
+════════════════════════════════════════════ -->
+<section class="section" id="s3">
+  <p class="section-label">Section 03</p>
+  <h2>align-items</h2>
+  <p class="desc">
+    Items ko <strong>cross axis</strong> (vertical, jab direction=row) pe kaise rakhein?
+    <br>Different height ke items dekhne ke liye yahan items alag-alag heights ke hain.
+  </p>
+  <div class="btn-strip" id="ai-btns">
+    <button class="active" onclick="setAI('stretch',this)">stretch</button>
+    <button onclick="setAI('flex-start',this)">flex-start</button>
+    <button onclick="setAI('center',this)">center</button>
+    <button onclick="setAI('flex-end',this)">flex-end</button>
+    <button onclick="setAI('baseline',this)">baseline</button>
+  </div>
+  <div class="live-code">align-items: <span id="ai-code">stretch</span>;</div>
+  <div class="demo-box" style="height:180px">
+    <div class="demo-flex" id="ai-demo"
+         style="align-items:stretch; justify-content:center; gap:10px; height:100%;">
+      <div class="fi" style="width:70px;">A</div>
+      <div class="fi" style="width:70px; font-size:30px;">B</div>
+      <div class="fi" style="width:70px; font-size:11px; padding:6px;">C small</div>
+      <div class="fi" style="width:70px;">D</div>
+    </div>
+  </div>
+</section><hr class="divider"/>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 4 — flex-wrap
+════════════════════════════════════════════ -->
+<section class="section" id="s4">
+  <p class="section-label">Section 04</p>
+  <h2>flex-wrap</h2>
+  <p class="desc">
+    Jab items container mein fit na hon toh kya karein?
+    <br><strong>nowrap</strong> = compress karke ek line mein raho (default).
+    <br><strong>wrap</strong> = agli line pe chale jao (jaise text wrap hota hai).
+    <br><strong>wrap-reverse</strong> = wrap hoga lekin upside-down.
+  </p>
+  <div class="btn-strip" id="fw-btns">
+    <button class="active" onclick="setFW('nowrap',this)">nowrap</button>
+    <button onclick="setFW('wrap',this)">wrap</button>
+    <button onclick="setFW('wrap-reverse',this)">wrap-reverse</button>
+  </div>
+  <div class="live-code">flex-wrap: <span id="fw-code">nowrap</span>;</div>
+  <div class="demo-box">
+    <div class="demo-flex" id="fw-demo"
+         style="flex-wrap:nowrap; gap:10px; align-items:center;">
+      <div class="fi sized">1</div>
+      <div class="fi sized">2</div>
+      <div class="fi sized">3</div>
+      <div class="fi sized">4</div>
+      <div class="fi sized">5</div>
+    </div>
+  </div>
+</section><hr class="divider"/>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 5 — align-content
+════════════════════════════════════════════ -->
+<section class="section" id="s5">
+  <p class="section-label">Section 05</p>
+  <h2>align-content</h2>
+  <p class="desc">
+    Yeh sirf tab kaam karta hai jab <strong>flex-wrap: wrap</strong> ON ho aur
+    <strong>multiple lines</strong> ban jaayein. Phir wo lines poore container mein
+    kaise distribute hongi, yeh <code>align-content</code> decide karta hai.
+    <br><em>(align-items = ek line ke andar; align-content = saari lines ek saath)</em>
+  </p>
+  <div class="btn-strip" id="ac-btns">
+    <button class="active" onclick="setAC('flex-start',this)">flex-start</button>
+    <button onclick="setAC('center',this)">center</button>
+    <button onclick="setAC('flex-end',this)">flex-end</button>
+    <button onclick="setAC('space-between',this)">space-between</button>
+    <button onclick="setAC('space-around',this)">space-around</button>
+    <button onclick="setAC('stretch',this)">stretch</button>
+  </div>
+  <div class="live-code">flex-wrap: wrap; &nbsp; align-content: <span id="ac-code">flex-start</span>;</div>
+  <div class="demo-box" style="height:280px;">
+    <div class="demo-flex" id="ac-demo"
+         style="flex-wrap:wrap; align-content:flex-start; gap:8px; height:100%;">
+      <div class="fi sized">1</div>
+      <div class="fi sized">2</div>
+      <div class="fi sized">3</div>
+      <div class="fi sized">4</div>
+      <div class="fi sized">5</div>
+      <div class="fi sized">6</div>
+    </div>
+  </div>
+</section><hr class="divider"/>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 6 — align-self
+════════════════════════════════════════════ -->
+<section class="section" id="s6">
+  <p class="section-label">Section 06</p>
+  <h2>align-self</h2>
+  <p class="desc">
+    <strong>align-items</strong> container pe lagata ho — saare items ek saath.
+    <br><strong>align-self</strong> ek <em>single item</em> pe lagata ho — sirf wahi item override hoga.
+    <br>Neeche dekho — har item ki apni alag <code>align-self</code> value hai.
+  </p>
+  <div class="live-code">
+    .item-1 { align-self: <span style="color:var(--item1)">flex-start</span>; }&nbsp;
+    .item-2 { align-self: <span style="color:var(--item2)">center</span>; }&nbsp;
+    .item-3 { align-self: <span style="color:var(--item3)">flex-end</span>; }&nbsp;
+    .item-4 { align-self: <span style="color:var(--item4)">stretch</span>; }
+  </div>
+  <div class="demo-box" style="height:180px;">
+    <div class="demo-flex self-demo"
+         style="gap:10px; justify-content:center; height:100%;">
+      <div class="fi tall" style="width:100px; align-self:flex-start">flex-start</div>
+      <div class="fi tall" style="width:100px; align-self:center">center</div>
+      <div class="fi tall" style="width:100px; align-self:flex-end">flex-end</div>
+      <div class="fi tall" style="width:100px; align-self:stretch; height:auto">stretch</div>
+    </div>
+  </div>
+</section><hr class="divider"/>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 7 — flex-grow / flex-shrink / flex-basis
+════════════════════════════════════════════ -->
+<section class="section" id="s7">
+  <p class="section-label">Section 07</p>
+  <h2>flex-grow &amp; flex-shrink</h2>
+  <p class="desc">
+    <strong>flex-grow</strong>: agar space bachta hai toh kaunsa item kitna bada ho?
+    <br>Number jitna zyada = utna zyada share milega extra space ka.
+    <br><strong>flex-shrink</strong>: agar jagah kam ho toh kaunsa item kitna chhota ho? (default: 1)
+    <br><strong>flex-basis</strong>: item ki starting/base size (like width/height).
+    <br>Shorthand: <code>flex: grow shrink basis</code> — e.g. <code>flex: 1</code> = grow:1, shrink:1, basis:0
+  </p>
+
+  <div class="live-code">
+    .item-1 { flex-grow: <span>1</span> }&nbsp;
+    .item-2 { flex-grow: <span>2</span> }&nbsp;
+    .item-3 { flex-grow: <span>1</span> }
+    <br>
+    Total parts = 4 → item-2 ko double share milega
+  </div>
+  <div class="demo-box">
+    <div class="demo-flex grow-demo"
+         style="gap:8px; align-items:center;">
+      <div class="fi" style="height:70px; flex-grow:1">grow:1</div>
+      <div class="fi" style="height:70px; flex-grow:2">grow:2</div>
+      <div class="fi" style="height:70px; flex-grow:1">grow:1</div>
+    </div>
+  </div>
+
+  <p class="desc" style="margin-top:16px;">
+    <strong>flex: 0 0 auto</strong> = item na badhega na chhota hoga (fixed size).
+    <br><strong>flex: 1</strong> = equal share of space (responsive layout ke liye sabse common use).
+  </p>
+  <div class="demo-box" style="margin-top:8px;">
+    <div class="demo-flex"
+         style="gap:8px; align-items:center;">
+      <div class="fi" style="height:70px; flex:0 0 120px">flex:0 0 120px</div>
+      <div class="fi" style="height:70px; flex:1">flex:1</div>
+      <div class="fi" style="height:70px; flex:1">flex:1</div>
+    </div>
+  </div>
+</section><hr class="divider"/>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 8 — order
+════════════════════════════════════════════ -->
+<section class="section" id="s8">
+  <p class="section-label">Section 08</p>
+  <h2>order</h2>
+  <p class="desc">
+    HTML mein items ka order hai 1→2→3→4→5.
+    <br><strong>order</strong> property se visual order change hota hai — HTML same rehta hai.
+    <br>Default value = <code>0</code>. Chhoti value pehle dikhti hai. Negative bhi chalti hai.
+  </p>
+  <div class="live-code">
+    HTML order: 1, 2, 3, 4, 5
+    <br>
+    .item-1{order:<span style="color:var(--item1)">3</span>} &nbsp;
+    .item-2{order:<span style="color:var(--item2)">1</span>} &nbsp;
+    .item-3{order:<span style="color:var(--item3)">5</span>} &nbsp;
+    .item-4{order:<span style="color:var(--item4)">2</span>} &nbsp;
+    .item-5{order:<span style="color:var(--item5)">4</span>}
+    <br>
+    Visual order: 2 → 4 → 1 → 5 → 3
+  </div>
+  <div class="demo-box">
+    <div class="demo-flex order-demo"
+         style="gap:10px; justify-content:center; align-items:center;">
+      <div class="fi" style="width:80px;height:80px; flex-direction:column; order:3">
+        1<small>order:3</small>
+      </div>
+      <div class="fi" style="width:80px;height:80px; flex-direction:column; order:1">
+        2<small>order:1</small>
+      </div>
+      <div class="fi" style="width:80px;height:80px; flex-direction:column; order:5">
+        3<small>order:5</small>
+      </div>
+      <div class="fi" style="width:80px;height:80px; flex-direction:column; order:2">
+        4<small>order:2</small>
+      </div>
+      <div class="fi" style="width:80px;height:80px; flex-direction:column; order:4">
+        5<small>order:4</small>
+      </div>
+    </div>
+  </div>
+</section><hr class="divider"/>
+
+
+<!-- ═══════════════════════════════════════════
+     CHEATSHEET
+════════════════════════════════════════════ -->
+<div class="cheatsheet" id="cheat">
+  <h2>⚡ Quick Cheatsheet</h2>
+  <div class="cheat-grid">
+    <div class="cheat-card">
+      <div class="prop">flex-direction</div>
+      <ul>
+        <li>row <span class="default">← default</span></li>
+        <li>column</li>
+        <li>row-reverse</li>
+        <li>column-reverse</li>
+      </ul>
+    </div>
+    <div class="cheat-card">
+      <div class="prop">justify-content</div>
+      <ul>
+        <li>flex-start <span class="default">← default</span></li>
+        <li>center</li>
+        <li>flex-end</li>
+        <li>space-between</li>
+        <li>space-around</li>
+        <li>space-evenly</li>
+      </ul>
+    </div>
+    <div class="cheat-card">
+      <div class="prop">align-items</div>
+      <ul>
+        <li>stretch <span class="default">← default</span></li>
+        <li>flex-start</li>
+        <li>center</li>
+        <li>flex-end</li>
+        <li>baseline</li>
+      </ul>
+    </div>
+    <div class="cheat-card">
+      <div class="prop">flex-wrap</div>
+      <ul>
+        <li>nowrap <span class="default">← default</span></li>
+        <li>wrap</li>
+        <li>wrap-reverse</li>
+      </ul>
+    </div>
+    <div class="cheat-card">
+      <div class="prop">align-content</div>
+      <ul>
+        <li>stretch <span class="default">← default</span></li>
+        <li>flex-start</li>
+        <li>center</li>
+        <li>flex-end</li>
+        <li>space-between</li>
+        <li>space-around</li>
+      </ul>
+    </div>
+    <div class="cheat-card">
+      <div class="prop">align-self</div>
+      <ul>
+        <li>auto <span class="default">← default</span></li>
+        <li>flex-start</li>
+        <li>center</li>
+        <li>flex-end</li>
+        <li>stretch</li>
+      </ul>
+    </div>
+    <div class="cheat-card">
+      <div class="prop">flex (shorthand)</div>
+      <ul>
+        <li>flex: 1 &nbsp;→ equal share</li>
+        <li>flex: 0 0 auto &nbsp;→ fixed</li>
+        <li>flex-grow: 0-∞</li>
+        <li>flex-shrink: 0-∞</li>
+        <li>flex-basis: px/%/auto</li>
+      </ul>
+    </div>
+    <div class="cheat-card">
+      <div class="prop">order</div>
+      <ul>
+        <li>0 <span class="default">← default</span></li>
+        <li>negative → pehle</li>
+        <li>positive → baad mein</li>
+        <li>HTML order change nahi hota</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  function clearActive(btnGroupId) {
+    document.getElementById(btnGroupId)
+      .querySelectorAll('button')
+      .forEach(b => b.classList.remove('active'));
+  }
+
+  function setDir(val, btn) {
+    clearActive('dir-btns'); btn.classList.add('active');
+    document.getElementById('dir-demo').style.flexDirection = val;
+    document.getElementById('dir-code').textContent = val;
+  }
+
+  function setJC(val, btn) {
+    clearActive('jc-btns'); btn.classList.add('active');
+    document.getElementById('jc-demo').style.justifyContent = val;
+    document.getElementById('jc-code').textContent = val;
+  }
+
+  function setAI(val, btn) {
+    clearActive('ai-btns'); btn.classList.add('active');
+    document.getElementById('ai-demo').style.alignItems = val;
+    document.getElementById('ai-code').textContent = val;
+  }
+
+  function setFW(val, btn) {
+    clearActive('fw-btns'); btn.classList.add('active');
+    document.getElementById('fw-demo').style.flexWrap = val;
+    document.getElementById('fw-code').textContent = val;
+  }
+
+  function setAC(val, btn) {
+    clearActive('ac-btns'); btn.classList.add('active');
+    document.getElementById('ac-demo').style.alignContent = val;
+    document.getElementById('ac-code').textContent = val;
+  }
+</script>
+
+</body>
 </html>
